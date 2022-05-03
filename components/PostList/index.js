@@ -1,0 +1,45 @@
+import Link from "next/link";
+import ReactMarkdown from "react-markdown";
+import Pagination from "@components/Pagination";
+import PublishedDate from "@components/PublishedDate";
+import ContentListStyles from "@styles/ContentList.module.css";
+import ReactMarkdownRenderers from "@utils/ReactMarkdownRenderers";
+
+export default function PostList(props) {
+  const { posts, currentPage, totalPages } = props;
+
+  const nextDisabled = parseInt(currentPage, 10) === parseInt(totalPages, 10);
+  const prevDisabled = parseInt(currentPage, 10) === 1;
+
+  return (
+    <>
+      <ol className="list-none">
+        {!!posts &&
+          posts.map((post) => (
+            <li className="py-4" key={post.sys.id}>
+              <article>
+                <PublishedDate date={post.date} />
+
+                <Link href={`blog/${post.slug}`}>
+                  <h2 className="text-4xl font-bold py-4 cursor-pointer">
+                    {post.title}
+                  </h2>
+                </Link>
+
+                <ReactMarkdown
+                  children={post.description}
+                  components={ReactMarkdownRenderers(post.description)}
+                />
+              </article>
+            </li>
+          ))}
+      </ol>
+      <Pagination
+        totalPages={totalPages}
+        currentPage={currentPage}
+        nextDisabled={nextDisabled}
+        prevDisabled={prevDisabled}
+      />
+    </>
+  );
+}

@@ -1,0 +1,33 @@
+{
+  "name": "next-contentful-starter",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@contentful/rich-text-react-renderer": "^15.12.1",
+    "@svgr/webpack": "^6.2.1",
+    "contentful": "^9.1.27",
+    "graphql": "^16.4.0",
+    "hex-to-css-filter": "^5.4.0",
+    "next": "12.1.5",
+    "next-themes": "^0.1.1",
+    "react": "18.1.0",
+    "react-dom": "^18.1.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.5",
+    "eslint": "8.14.0",
+    "eslint-config-next": "12.1.5",
+    "import-all.macro": "^3.1.0",
+    "lodash": "^4.17.21",
+    "postcss": "^8.4.13",
+    "prismjs": "^1.28.0",
+    "react-markdown": "^8.0.3",
+    "tailwindcss": "^3.0.24"
+  }
+}
