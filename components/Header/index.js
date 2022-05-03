@@ -18,20 +18,22 @@ const Header = () => {
 
     if (currentTheme === "dark") {
       return (
-        <div
-          className="w-10 h-10 text-yellow-500 "
-          onClick={() => setTheme("light")}
-        >
-          Sun
+        <div className="cursor-pointer" onClick={() => setTheme("light")}>
+          {gstyles.icons({
+            name: "star",
+            size: 24,
+            fill: "#ffffff",
+          })}
         </div>
       );
     } else {
       return (
-        <div
-          className="w-10 h-10 text-gray-900"
-          onClick={() => setTheme("dark")}
-        >
-          Moon
+        <div className="cursor-pointer" onClick={() => setTheme("dark")}>
+          {gstyles.icons({
+            name: "star",
+            size: 24,
+            fill: "#000000",
+          })}
         </div>
       );
     }
@@ -41,20 +43,20 @@ const Header = () => {
     <header className="h-15 dark:border-gray-700">
       <div className="container py-4 flex justify-between items-center">
         <div className="flex items-center space-x-4">
-          
+          <div>
             {gstyles.icons({
               name: "github",
               size: 24,
-              fill: "red",
+              fill: theme === "dark" ? "#ffffff" : "#000000",
             })}
-          
-          
+          </div>
+          <div>
             {gstyles.icons({
               name: "twitter",
               size: 24,
-              fill: "red",
+              fill: theme === "dark" ? "#ffffff" : "#000000",
             })}
-          
+          </div>
         </div>
         {renderThemeChanger()}
       </div>

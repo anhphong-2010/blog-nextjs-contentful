@@ -42,7 +42,7 @@ export const Icons = ({ name, size = 18, ...props }) => {
   return (
     <Comp
       style={{
-        transition: "all .3s cubic-bezier(.645,.045,.355,1)",
+        // transition: "linear .1s cubic-bezier(.645,.045,.355,1)",
         ...getFilterCss(props.fill),
       }}
       width={size}

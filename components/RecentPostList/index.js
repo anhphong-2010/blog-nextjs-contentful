@@ -8,16 +8,16 @@ import ReactMarkdownRenderers from "@utils/ReactMarkdownRenderers";
 export default function RecentPostList(props) {
   const { posts } = props;
   return (
-    <>
-      <h2 className="text-4xl">Recent articles</h2>
+    <div className="my-4">
+      <h2 className="text-3xl font-bold">Recent articles</h2>
       <ol className="list-none">
         {!!posts &&
           posts.map((post) => (
-            <li className="py-4" key={post.sys.id}>
+            <li className="py-6" key={post.sys.id}>
               <article>
                 <PublishedDate date={post.date} />
                 <Link className="cursor-pointer" href={`/blog/${post.slug}`}>
-                  <h2 className="text-4xl font-bold py-4 cursor-pointer">
+                  <h2 className="text-3xl font-medium py-4 cursor-pointer">
                     {post.title}
                   </h2>
                 </Link>
@@ -33,9 +33,9 @@ export default function RecentPostList(props) {
           ))}
       </ol>
       <Link href={Config.pageMeta.blogIndex.slug}>
-        <div>See more articles</div>
+        <div className="cursor-pointer inline-block rounded-lg p-3 bg-black text-white">See more articles</div>
       </Link>
-    </>
+    </div>
   );
 }
 
