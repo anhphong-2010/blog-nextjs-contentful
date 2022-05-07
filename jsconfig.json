@@ -4,6 +4,7 @@
     "paths": {
       "@layouts/*": ["layouts/*"],
       "@components/*": ["components/*"],
+      "@ctf": ["ctf/*"],
       "@styles/*": ["styles/*"],
       "@hooks/*": ["hooks/*"],
       "@gstyles/*": ["gstyles/*"],

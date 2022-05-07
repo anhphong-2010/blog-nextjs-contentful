@@ -30,6 +30,68 @@ export default class ContentfulApi {
     }
   }
 
+  static async getPageContentBySlug(slug, options = defaultOptions) {
+    const variables = { slug, preview: options.preview };
+    const query = `
+    query GetPageContentBySlug($slug: String!, $preview: Boolean!) {
+      pageContentCollection(limit: 1, where: {slug: $slug}, preview: $preview) {
+        items {
+          sys {
+            id
+          }
+          body {
+            json
+            links {
+              entries {
+                block {
+                  sys {
+                    id
+                  }
+                  __typename
+                  ... on VideoEmbed {
+                    title
+                    embedUrl
+                  }
+                  __typename
+                  ... on Section {
+                    name
+                    description
+                    image {
+                      url
+                    }
+                  }
+                }
+              }
+              assets {
+                block {
+                  sys {
+                    id
+                  }
+                  url
+                  title
+                  width
+                  height
+                  description
+                }
+              }
+            }
+          }
+          title
+          description
+          slug
+        }
+      }
+    }`;
+
+    const response = await this.callContentful(query, variables, options);
+
+    const pageContent = response.data.pageContentCollection.items
+      ? response.data.pageContentCollection.items
+      : [];
+
+    return pageContent.pop();
+  }
+
   static async getRecentPostList() {
     const variables = { limit: Config.pagination.recentPostsSize };
     const query = `query GetRecentPostList($limit: Int!) {
@@ -175,6 +237,11 @@ export default class ContentfulApi {
                   ... on VideoEmbed {
                     title
                     embedUrl
+                  }
+                  ... on CodeBlock {
+                    description
+                    language
+                    code
                   }
                 }
               }

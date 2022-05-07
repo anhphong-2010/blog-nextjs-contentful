@@ -1,3 +1,4 @@
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -5,6 +6,8 @@ import RichTextPageContentStyles from "@styles/RichTextPageContent.module.css";
 import TypographyStyles from "@styles/Typography.module.css";
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import contentfulRenderer from "@utils/contentfulRenderer";
+import _ from "lodash";
 
 function slugifyString(string) {
   return string
@@ -156,8 +159,9 @@ export function getRichTextRenderOptions(links, options) {
             return <DynamicVideoEmbed embedUrl={embedUrl} title={title} />;
           case "CodeBlock":
             const { language, code } = entry;
-
             return <DynamicCodeBlock language={language} code={code} />;
+          case "Section":
+            return contentfulRenderer.renderSection(entry);
           default:
             return null;
         }
@@ -197,8 +201,10 @@ export default function RichTextPageContent(props) {
   return (
     <div className={RichTextPageContentStyles.page__content}>
       {documentToReactComponents(
-        richTextBodyField.json,
-        getRichTextRenderOptions(richTextBodyField.links, { renderH2Links })
+        _.get(richTextBodyField, "json", ""),
+        getRichTextRenderOptions(_.get(richTextBodyField, "links", ""), {
+          renderH2Links,
+        })
       )}
     </div>
   );

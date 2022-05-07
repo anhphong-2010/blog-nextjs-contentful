@@ -1,11 +1,36 @@
-// /pages/blog/pages/[page].js
-
 import ContentfulApi from "@utils/ContentfulApi";
 import { Config } from "@utils/Config";
+import LayoutMain from "@layouts/LayoutMain";
+import SEO from "@components/SEO";
+import Header from "@components/Header";
+import PostList from "@components/PostList";
 
 export default function BlogIndexPage(props) {
-  const { postSummaries, totalPages, currentPage } = props;
-  return <div>adasdasd</div>;
+  const { postSummaries, totalPages, currentPage, pageContent, preview } =
+    props;
+  const pageTitle = pageContent ? pageContent.title : "Blog";
+  const pageDescription = pageContent
+    ? pageContent.description
+    : "Articles | Next.js Contentful blog starter";
+
+  return (
+    <LayoutMain preview={preview}>
+      <SEO
+        title={`${pageTitle} Page ${currentPage}`}
+        description={pageDescription}
+        url={`${Config.pageMeta.blogIndex.url}/page/${currentPage}`}
+      />
+      <Header />
+      {/* {pageContent.content && (
+        <RichTextPageContent richTextBodyField={pageContent.content} />
+      )} */}
+      <PostList
+        posts={postSummaries}
+        totalPages={totalPages}
+        currentPage={currentPage}
+      />
+    </LayoutMain>
+  );
 }
 
 export async function getStaticPaths() {
@@ -28,19 +53,29 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, preview = false }) {
   const postSummaries = await ContentfulApi.getPaginatedPostSummaries(
     params.page
   );
+  
   const totalPages = Math.ceil(
     postSummaries.total / Config.pagination.pageSize
   );
 
+  const pageContent = await ContentfulApi.getPageContentBySlug(
+    Config.pageMeta.blogIndex.slug,
+    {
+      preview: preview,
+    }
+  );
+
   return {
     props: {
+      preview,
       postSummaries: postSummaries.items,
       totalPages,
       currentPage: params.page,
+      pageContent: pageContent || null,
     },
   };
 }

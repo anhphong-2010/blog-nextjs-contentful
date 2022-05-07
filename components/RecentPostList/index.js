@@ -33,7 +33,7 @@ export default function RecentPostList(props) {
           ))}
       </ol>
       <Link href={Config.pageMeta.blogIndex.slug}>
-        <div className="cursor-pointer inline-block rounded-lg p-3 bg-black text-white">See more articles</div>
+        <div className="cursor-pointer inline-block rounded-lg p-3 dark:bg-white bg-black dark:text-black text-white font-bold">See more articles</div>
       </Link>
     </div>
   );

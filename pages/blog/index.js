@@ -3,11 +3,13 @@ import { Config } from "@utils/Config";
 import PostList from "@components/PostList";
 import LayoutMain from "@layouts/LayoutMain";
 import Header from "@components/Header";
+import SEO from "@components/SEO";
 
 export default function BlogIndex(props) {
   const { postSummaries, currentPage, totalPages } = props;
   return (
     <LayoutMain>
+      <SEO title={`Blog Page ${currentPage}`} />
       <Header />
       <PostList
         posts={postSummaries}

@@ -2,7 +2,6 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import Pagination from "@components/Pagination";
 import PublishedDate from "@components/PublishedDate";
-import ContentListStyles from "@styles/ContentList.module.css";
 import ReactMarkdownRenderers from "@utils/ReactMarkdownRenderers";
 
 export default function PostList(props) {

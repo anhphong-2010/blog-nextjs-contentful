@@ -3,11 +3,25 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
     "./layouts/**/*.{js,ts,jsx,tsx}",
+    "./ctf/**/*.{js,ts,jsx,tsx}",
   ],
 
   darkMode: "class", // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        slideY: {
+          "0%": { transform: "translateY(0px)" },
+          "30%": { transform: "translateY(12px)" },
+          "60%": { transform: "translateY(10px)" },
+          "60%": { transform: "translateY(8px)" },
+          "100%": { transform: "translateY(0px)" },
+        },
+      },
+      animation: {
+        "fly": "slideY 4s linear infinite",
+      },
+    },
   },
   variants: {
     extend: {},
@@ -30,7 +44,7 @@ module.exports = {
             maxWidth: "800px",
           },
           "@screen xl": {
-            maxWidth: "900px",
+            maxWidth: "1200px",
           },
         },
       });
