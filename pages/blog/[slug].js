@@ -1,7 +1,8 @@
 import { Config } from "@utils/Config";
 import ContentfulApi from "@utils/ContentfulApi";
-import Post from "@components/Post";
 import SEO from "@components/SEO";
+import Header from '@components/Header'
+import Post from "@components/Post";
 import LayoutMain from "@layouts/LayoutMain";
 
 export default function PostWrapper(props) {
@@ -14,6 +15,7 @@ export default function PostWrapper(props) {
         url={`${Config.pageMeta.blogIndex.url}/${post.slug}`}
         // canonical={post.externalUrl ? post.externalUrl : false}
       />
+      <Header/>
 
       <Post post={post} />
     </LayoutMain>
