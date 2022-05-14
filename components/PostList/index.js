@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 import Pagination from "@components/Pagination";
 import PublishedDate from "@components/PublishedDate";
 import ReactMarkdownRenderers from "@utils/ReactMarkdownRenderers";
+import _ from "lodash";
 
 export default function PostList(props) {
   const { posts, currentPage, totalPages } = props;
@@ -33,12 +34,15 @@ export default function PostList(props) {
             </li>
           ))}
       </ol>
-      <Pagination
-        totalPages={totalPages}
-        currentPage={currentPage}
-        nextDisabled={nextDisabled}
-        prevDisabled={prevDisabled}
-      />
+
+      {totalPages > 1 && (
+        <Pagination
+          totalPages={totalPages}
+          currentPage={currentPage}
+          nextDisabled={nextDisabled}
+          prevDisabled={prevDisabled}
+        />
+      )}
     </>
   );
 }

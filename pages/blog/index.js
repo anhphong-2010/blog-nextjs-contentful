@@ -1,4 +1,4 @@
-import ContentfulApi from "@utils/ContentfulApi";
+import ContentfulApi from "@services/contentfulApi";
 import { Config } from "@utils/Config";
 import PostList from "@components/PostList";
 import LayoutMain from "@layouts/LayoutMain";

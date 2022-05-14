@@ -46,14 +46,14 @@ const Header = () => {
           <div>
             {gstyles.icons({
               name: "github",
-              size: 24,
+              size: 20,
               fill: theme === "dark" ? "#ffffff" : "#000000",
             })}
           </div>
           <div>
             {gstyles.icons({
               name: "twitter",
-              size: 24,
+              size: 20,
               fill: theme === "dark" ? "#ffffff" : "#000000",
             })}
           </div>

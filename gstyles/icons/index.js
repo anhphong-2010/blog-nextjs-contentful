@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import _ from "lodash";
 import importAll from "import-all.macro";
 import { hexToCSSFilter } from "hex-to-css-filter";
-import svgToMiniDataURI from "@utils/mini-svg-data-uri";
 
 const svgs = importAll.sync("./svgs/*.svg");
 
@@ -59,27 +58,6 @@ Icons.getSvg = ({ name, size = 18, ...props }) => {
     });
   });
 };
-
-Icons.getDataUri = ({ name, size = 18, ...props }) => {
-  return new Promise((res) => {
-    const container = document.createElement("div");
-    ReactDOM.render(Icons({ name, size, ...props }), container, () => {
-      res(svgToMiniDataURI(container.innerHTML));
-    });
-  });
-};
-
-Icons.getCursor = _.memoize(
-  ({ name, size = 18, ...props }) => {
-    return new Promise((res) => {
-      const container = document.createElement("div");
-      ReactDOM.render(Icons({ name, size, ...props }), container, () => {
-        res(`data:image/svg+xml;base64,${window.btoa(container.innerHTML)}`);
-      });
-    });
-  },
-  (val) => JSON.stringify(_.pick(val, ["name", "size", "fill"]))
-);
 
 export const Icon = Icons;
 

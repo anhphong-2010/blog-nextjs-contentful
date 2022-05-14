@@ -2,7 +2,7 @@ import RecentPostList from "@components/RecentPostList";
 import Header from "@components/Header";
 import LayoutMain from "@layouts/LayoutMain";
 import SEO from "@components/SEO";
-import ContentfulApi from "@utils/ContentfulApi";
+import ContentfulApi from "@services/contentfulApi";
 import { Config } from "@utils/Config";
 import RichTextPageContent from "@components/RichTextPageContent";
 

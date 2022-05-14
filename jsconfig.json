@@ -8,6 +8,7 @@
       "@styles/*": ["styles/*"],
       "@hooks/*": ["hooks/*"],
       "@gstyles/*": ["gstyles/*"],
+      "@services/*": ["services/*"],
       "@utils/*": ["utils/*"]
     }
   }

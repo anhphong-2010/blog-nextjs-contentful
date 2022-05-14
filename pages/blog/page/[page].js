@@ -1,4 +1,4 @@
-import ContentfulApi from "@utils/ContentfulApi";
+import ContentfulApi from "@services/contentfulApi";
 import { Config } from "@utils/Config";
 import LayoutMain from "@layouts/LayoutMain";
 import SEO from "@components/SEO";
@@ -21,9 +21,7 @@ export default function BlogIndexPage(props) {
         url={`${Config.pageMeta.blogIndex.url}/page/${currentPage}`}
       />
       <Header />
-      {/* {pageContent.content && (
-        <RichTextPageContent richTextBodyField={pageContent.content} />
-      )} */}
+
       <PostList
         posts={postSummaries}
         totalPages={totalPages}
@@ -57,7 +55,7 @@ export async function getStaticProps({ params, preview = false }) {
   const postSummaries = await ContentfulApi.getPaginatedPostSummaries(
     params.page
   );
-  
+
   const totalPages = Math.ceil(
     postSummaries.total / Config.pagination.pageSize
   );

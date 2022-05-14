@@ -1,5 +1,5 @@
 import { Config } from "@utils/Config";
-import ContentfulApi from "@utils/ContentfulApi";
+import ContentfulApi from "@services/contentfulApi";
 import SEO from "@components/SEO";
 import Header from '@components/Header'
 import Post from "@components/Post";
