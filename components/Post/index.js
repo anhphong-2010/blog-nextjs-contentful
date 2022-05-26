@@ -16,7 +16,7 @@ export default function Post(props) {
       <h1 className={TypographyStyles.heading__h1}>{post.title}</h1>
       {post.description && <div className="my-2">{post.description}</div>}
       <div className="my-4">
-        <PublishedDate date={post.date} />
+        <PublishedDate classStr="text-gray-900 dark:text-white" date={post.date} />
       </div>
       <RichTextPageContent
         richTextBodyField={post.content}

@@ -4,11 +4,11 @@ import {
 } from "@utils/Date";
 
 export default function PublishedDate(props) {
-  const { date } = props;
+  const { date, classStr } = props;
 
   return (
     <time
-      className="flex dark:text-white text-black"
+      className={`flex font-bold ${classStr}`}
       dateTime={formatPublishedDateForDateTime(date)}
     >
       {formatPublishedDateForDisplay(date)}
