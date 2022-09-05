@@ -20,7 +20,7 @@ export default function PostList(props) {
               <article>
                 <PublishedDate date={post.date} />
 
-                <Link href={`blog/${post.slug}`}>
+                <Link href={`blog/${post.slug}`} passHref>
                   <h2 className="text-4xl font-bold py-4 cursor-pointer">
                     {post.title}
                   </h2>

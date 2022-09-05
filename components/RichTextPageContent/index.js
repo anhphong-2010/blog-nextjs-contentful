@@ -141,7 +141,7 @@ export function getRichTextRenderOptions(links, options) {
         switch (__typename) {
           case "BlogPost":
             return (
-              <Link href={`/blog/${entry.slug}`}>
+              <Link href={`/blog/${entry.slug}`} passHref>
                 <a className={TypographyStyles.inlineLink}>{entry.title}</a>
               </Link>
             );
@@ -174,7 +174,12 @@ export function getRichTextRenderOptions(links, options) {
         if (renderNativeImg) {
           return (
             <div className={RichTextPageContentStyles.page__imgContainer}>
-              <img src={url} alt={description} height={height} width={width} />
+              <Image
+                src={url}
+                alt={description}
+                height={height}
+                width={width}
+              />
             </div>
           );
         } else {

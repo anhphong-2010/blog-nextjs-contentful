@@ -3,6 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ["images.ctfassets.net"],
+    loader: "akamai",
+    path: "",
   },
   webpack(config) {
     config.module.rules.push({

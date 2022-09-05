@@ -23,7 +23,11 @@ export default function RecentPostList(props) {
                   date={post.date}
                 />
               </div>
-              <Link className="cursor-pointer" href={`/blog/${post.slug}`}>
+              <Link
+                className="cursor-pointer"
+                href={`/blog/${post.slug}`}
+                passHref
+              >
                 <h2 className="dark:text-gray-900 text-white text-3xl font-medium py-4 cursor-pointer">
                   {post.title}
                 </h2>
@@ -41,7 +45,7 @@ export default function RecentPostList(props) {
           ))}
       </div>
       <div className="text-center">
-        <Link href={Config.pageMeta.blogIndex.slug}>
+        <Link href={Config.pageMeta.blogIndex.slug} passHref>
           <div className="cursor-pointer inline-block rounded-lg p-3 dark:bg-white bg-black dark:text-black text-white font-bold">
             See more articles
           </div>
