@@ -1,7 +1,7 @@
 import {
   formatPublishedDateForDateTime,
   formatPublishedDateForDisplay,
-} from "@utils/Date";
+} from "@utils/date";
 
 export default function PublishedDate(props) {
   const { date, classStr } = props;

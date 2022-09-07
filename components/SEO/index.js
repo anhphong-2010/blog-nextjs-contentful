@@ -1,6 +1,6 @@
 import Head from "next/head";
-import OpenGraph from "@utils/OpenGraph";
-import { Config } from "@utils/Config";
+import OpenGraph from "@utils/openGraph";
+import { Config } from "@utils/config";
 
 export default function PageMeta(props) {
   const { title, description } = props;

@@ -1,4 +1,4 @@
-import { Config } from "@utils/Config";
+import { Config } from "@utils/config";
 
 const defaultOptions = {
   preview: false,

@@ -2,8 +2,8 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import PublishedDate from "@components/PublishedDate";
 import ContentListStyles from "@styles/ContentList.module.css";
-import { Config } from "@utils/Config";
-import ReactMarkdownRenderers from "@utils/ReactMarkdownRenderers";
+import { Config } from "@utils/config";
+import ReactMarkdownRenderers from "@utils/reactMarkdownRenderers";
 
 export default function RecentPostList(props) {
   const { posts } = props;
