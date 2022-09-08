@@ -25,7 +25,7 @@ const nextConfig = {
         },
       },
     });
-    config.plugins.push({ ...new CaseSensitivePathsPlugin() });
+    config.plugins.push(new CaseSensitivePathsPlugin());
 
     return config;
   },
