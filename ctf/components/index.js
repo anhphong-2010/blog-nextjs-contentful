@@ -1,7 +1,7 @@
 import _ from "lodash";
 import importAll from "import-all.macro";
 
-import DIContainer from "@utils/diContainer";
+import DIContainer from "@utils/di-container";
 
 const layoutContainer = new DIContainer();
 
