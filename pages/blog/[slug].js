@@ -1,4 +1,4 @@
-import { Config } from "@utils/Config";
+import { Config } from "@utils/config";
 import ContentfulApi from "@services/contentfulApi";
 import SEO from "@components/SEO";
 import Header from '@components/Header'

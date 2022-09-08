@@ -3,7 +3,7 @@ import ReactMarkdown from "react-markdown";
 import PublishedDate from "@components/PublishedDate";
 import ContentListStyles from "@styles/ContentList.module.css";
 import { Config } from "@utils/config";
-import ReactMarkdownRenderers from "@utils/reactMarkdownRenderers";
+import ReactMarkdownRenderers from "@utils/react-mark-down-renderers";
 
 export default function RecentPostList(props) {
   const { posts } = props;

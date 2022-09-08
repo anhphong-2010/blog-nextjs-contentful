@@ -1,5 +1,5 @@
 import ContentfulApi from "@services/contentfulApi";
-import { Config } from "@utils/Config";
+import { Config } from "@utils/config";
 import LayoutMain from "@layouts/LayoutMain";
 import SEO from "@components/SEO";
 import Header from "@components/Header";

@@ -49,3 +49,8 @@ export function formatPublishedDateForDisplay(dateString) {
     date.getMonth()
   )} ${date.getFullYear()}`;
 }
+
+export default {
+  formatPublishedDateForDisplay,
+  formatPublishedDateForDateTime,
+};
