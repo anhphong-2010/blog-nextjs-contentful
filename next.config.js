@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+var CaseSensitivePathsPlugin = require("case-sensitive-paths-webpack-plugin");
+
 const nextConfig = {
   reactStrictMode: true,
   images: {
@@ -26,6 +28,7 @@ const nextConfig = {
 
     return config;
   },
+  plugins: [new CaseSensitivePathsPlugin()],
 };
 
 module.exports = nextConfig;
