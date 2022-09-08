@@ -9,25 +9,23 @@ const nextConfig = {
     path: "",
   },
   webpack(config) {
-    config.module.rules.push(
-      {
-        test: /\.svg$/,
-        use: {
-          loader: "@svgr/webpack",
-          options: {
-            svgoConfig: {
-              plugins: [
-                {
-                  name: "removeViewBox",
-                  active: false,
-                },
-              ],
-            },
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: {
+        loader: "@svgr/webpack",
+        options: {
+          svgoConfig: {
+            plugins: [
+              {
+                name: "removeViewBox",
+                active: false,
+              },
+            ],
           },
         },
       },
-      new CaseSensitivePathsPlugin()
-    );
+    });
+    config.plugins.push({ ...new CaseSensitivePathsPlugin() });
 
     return config;
   },
