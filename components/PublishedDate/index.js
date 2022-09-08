@@ -1,9 +1,9 @@
 import {
   formatPublishedDateForDateTime,
   formatPublishedDateForDisplay,
-} from "@utils/date";
+} from "@utils/date-fn";
 
-export default function PublishedDate(props) {
+export function PublishedDate(props) {
   const { date, classStr } = props;
 
   return (
@@ -15,3 +15,5 @@ export default function PublishedDate(props) {
     </time>
   );
 }
+
+export default PublishedDate;
