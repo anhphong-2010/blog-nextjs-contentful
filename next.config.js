@@ -5,8 +5,6 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ["images.ctfassets.net"],
-    loader: "akamai",
-    path: "",
   },
   webpack(config) {
     config.module.rules.push({
@@ -25,7 +23,7 @@ const nextConfig = {
         },
       },
     });
-    config.plugins.push(new CaseSensitivePathsPlugin({ debug: true }));
+    config.plugins.push(new CaseSensitivePathsPlugin());
 
     return config;
   },

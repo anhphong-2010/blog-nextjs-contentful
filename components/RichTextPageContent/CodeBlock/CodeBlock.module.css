@@ -1,5 +1,6 @@
 pre[class*="language-"].codeBlock {
   margin: 2rem 0;
+  border-radius: 8px;
 }
 
 code[class*="language-"].codeBlock__inner {

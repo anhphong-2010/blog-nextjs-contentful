@@ -1,17 +1,26 @@
-import CodeBlockStyles from "./CodeBlock.module.css";
+import CodeBlockStyle from "./CodeBlock.module.css";
 import Prism from "prismjs";
 import { useEffect } from "react";
+import "prismjs/components/prism-jsx";
+import "prismjs/themes/prism-tomorrow.min.css";
+import "prismjs/plugins/unescaped-markup/prism-unescaped-markup.min.js";
+import "prismjs/plugins/toolbar/prism-toolbar.min.css";
+import "prismjs/plugins/toolbar/prism-toolbar.min";
+import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min";
 
 export default function CodeBlock(props) {
   useEffect(() => {
-    Prism.highlightAll();
+    const highlight = async () => {
+      await Prism.highlightAll(); // <--- prepare Prism
+    };
+    highlight();
   }, []);
 
   const { language, code } = props;
 
   return (
-    <pre className={`${CodeBlockStyles.codeBlock} language-${language}`}>
-      <code className={CodeBlockStyles.codeBlock__inner}>{code}</code>
+    <pre className={`${CodeBlockStyle.codeBlock} language-${language}`}>
+      <code className={CodeBlockStyle.codeBlock__inner}>{code}</code>
     </pre>
   );
 }

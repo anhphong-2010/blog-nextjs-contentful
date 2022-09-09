@@ -190,7 +190,6 @@ export function getRichTextRenderOptions(links, options) {
                 alt={description}
                 height={height}
                 width={width}
-                layout="responsive"
               />
             </div>
           );
