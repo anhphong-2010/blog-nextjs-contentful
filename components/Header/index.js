@@ -10,7 +10,7 @@ const Header = () => {
     setMounted(true);
   }, []);
 
-  const { systemTheme, theme, setTheme } = useTheme();
+  const { systemTheme, theme, setTheme } = useTheme("light");
 
   const renderThemeChanger = () => {
     if (!mounted) return null;
