@@ -53,15 +53,6 @@ const Header = () => {
               })}
             </Link>
           </div>
-          <div className="cursor-pointer">
-            <Link href={"https://twitter.com/AnhPhong201095"}>
-              {gstyles.icons({
-                name: "twitter",
-                size: 20,
-                fill: theme === "dark" ? "#ffffff" : "#000000",
-              })}
-            </Link>
-          </div>
         </div>
         <div className="flex items-center space-x-6">
           <Link href={"/"}>
