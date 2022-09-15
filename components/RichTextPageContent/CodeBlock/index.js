@@ -7,6 +7,8 @@ import "prismjs/plugins/unescaped-markup/prism-unescaped-markup.min.js";
 import "prismjs/plugins/toolbar/prism-toolbar.min.css";
 import "prismjs/plugins/toolbar/prism-toolbar.min";
 import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min";
+import 'prismjs/plugins/line-numbers/prism-line-numbers.js'
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 
 export default function CodeBlock(props) {
   useEffect(() => {
@@ -19,7 +21,7 @@ export default function CodeBlock(props) {
   const { language, code } = props;
 
   return (
-    <pre className={`${CodeBlockStyle.codeBlock} language-${language}`}>
+    <pre className={`${CodeBlockStyle.codeBlock} shadow-lg line-numbers language-${language}`}>
       <code className={CodeBlockStyle.codeBlock__inner}>{code}</code>
     </pre>
   );
