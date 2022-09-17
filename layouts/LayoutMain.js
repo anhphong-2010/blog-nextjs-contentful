@@ -1,3 +1,12 @@
+import Header from "@components/Header";
+
 export default function LayoutMain({ children }) {
-  return <div className="container mx-4 sm:mx-auto">{children}</div>
+  return (
+    <div>
+      <div className="container mx-4 sm:mx-auto">
+        <Header />
+      </div>
+      {children}
+    </div>
+  );
 }

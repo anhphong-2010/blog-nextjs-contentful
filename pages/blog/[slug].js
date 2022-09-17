@@ -1,7 +1,6 @@
 import { Config } from "@utils/config";
 import ContentfulApi from "@services/contentfulApi";
 import SEO from "@components/SEO";
-import Header from '@components/Header'
 import Post from "@components/Post";
 import LayoutMain from "@layouts/LayoutMain";
 
@@ -15,9 +14,9 @@ export default function PostWrapper(props) {
         url={`${Config.pageMeta.blogIndex.url}/${post.slug}`}
         // canonical={post.externalUrl ? post.externalUrl : false}
       />
-      <Header/>
-
-      <Post post={post} />
+      <div className="container mx-4 sm:mx-auto">
+        <Post post={post} />
+      </div>
     </LayoutMain>
   );
 }

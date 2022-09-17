@@ -104,6 +104,9 @@ export default class ContentfulApi {
           title
           slug
           description
+          thumbnail{
+            url
+          }
         }
       }
     }`;
@@ -152,6 +155,9 @@ export default class ContentfulApi {
             title
             slug
             description
+            thumbnail{
+              url
+            }
           }
         }
       }`;
@@ -225,6 +231,9 @@ export default class ContentfulApi {
           title
           slug
           description
+          thumbnail{
+            url
+          }
           content {
             json
             links {
@@ -239,6 +248,7 @@ export default class ContentfulApi {
                     embedUrl
                   }
                   ... on CodeBlock {
+                    name
                     description
                     language
                     code

@@ -2,7 +2,6 @@ import ContentfulApi from "@services/contentfulApi";
 import { Config } from "@utils/config";
 import PostList from "@components/PostList";
 import LayoutMain from "@layouts/LayoutMain";
-import Header from "@components/Header";
 import SEO from "@components/SEO";
 
 export default function BlogIndex(props) {
@@ -10,12 +9,13 @@ export default function BlogIndex(props) {
   return (
     <LayoutMain>
       <SEO title={`Blog Page ${currentPage}`} />
-      <Header />
-      <PostList
-        posts={postSummaries}
-        totalPages={totalPages}
-        currentPage={currentPage}
-      />
+      <div className="container mx-4 sm:mx-auto">
+        <PostList
+          posts={postSummaries}
+          totalPages={totalPages}
+          currentPage={currentPage}
+        />
+      </div>
     </LayoutMain>
   );
 }

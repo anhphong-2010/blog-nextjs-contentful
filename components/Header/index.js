@@ -49,7 +49,7 @@ const Header = () => {
               {gstyles.icons({
                 name: "github",
                 size: 20,
-                fill: theme === "dark" ? "#ffffff" : "#000000",
+                fill: theme !== "light" ? "#ffffff" : "#000000",
               })}
             </Link>
           </div>
@@ -58,7 +58,7 @@ const Header = () => {
           <Link href={"/"}>
             <div className="cursor-pointer text-base font-bold">Home</div>
           </Link>
-          {theme === "dark" ? (
+          {theme !== "light" ? (
             <img
               style={{ filter: "invert(1)" }}
               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABmJLR0QA/wD/AP+gvaeTAAAEyUlEQVRYhc3YSYxVVRAG4K8VozI0iAunREVocEQElcBCNBghRo2gCQsWzgs3akhMcFg5z2GhxoWaGFGjLIySOIEEHFFJlAacN6K2Iw44gGgaF1U3777re93vPd+CP7npflX3VP3nnjpVdQ57OHq6YGMcJuNwjE7Z79iKT/FLF3y0jRm4D5sxiN1NnkFswj2Y3omjdr5gD87H9Tg5CWzCuiT6BX7Nd8fiSByH03F8jn8Xt+L5TsgOhclYk6R+xE04qo3xE3EztqWNVZjULXKL8Rt2JrHRQ78+JEbjlrS1HYv+L7kbRBxtEcvVLZyAD9P20k6N3CiWYw16u8OrDqPxUvpom+RiMbtV2LckP0zEU6eYmDYK7ItX01fLyz1ZxNwW9fHWh6/zmdIBuSml8eVJ9uIjkQGGnXyPWNKd6mNuH/Tjn9S1S7IgtzNtbEybBU7AX3hlOEMLREzcVJFfnvKrMB870uFcLMEKkeM+y+fdlC3Jd77OMfNxddq6rOLj1pSfMxTB90SeG1WRr8aA2qwLkkXF+F18lXX59Kes0BfkpI0B//1aY0SeXN+M3AyNv540+ExFdhaW5bi9G4zZO3XL8t0yVoivWsUtyeGkRgTvE7upUYUYwPJGgzrEk/iqgbwvOdzdaNAmsUyN8MYQuk7Qj9eb6DaXfe2Vf8eJXbuuyaA3MVV36ucksWvfaqJfm/reMsEpIsVsbjBgBBbiS7HUBcaKHXdO/l9FM/2AWN4FGsfu5uRSl8YuEMFZDWZJbrdIDwVmpqNilw7g1Db016R8QQN/81O3sCy8OIWzGgx4WaSMMfm7B5/jm5zYhfhWdM89LeilrT9ELa5iVnK5qBHB2ZWXR4ns/2xJNsF/C/x1KZvQgr7Ac2l7ZMXn7DLBIgZ/y7/VrmWOKOgrS7Kf00BfSVakh59a0BdYmbbnVHwW8bqd2ADEBiDa9Ops4LWS7BeREy8VB6UeUc4eU2v5h9OXbc7GiyV5weHLksy4nOH9FYJP40+1L11gpEjsRXdyL/ZvQ0/s4J14qiJ/ILn0Un9o6s9B5S5mjWiBjjA8pqrV6r/T3nAojqZnlmQfYhemUf9lVuFY9T3Z/mImrSToSXg7n1be70vboyqyYzRpu6aL4L69JJsrluE7zGvB6UKV/NUE8/B92p5bkt+RHKY1G/iOaLfKmX9OygbxIA5qgUAzHJw2BvEDTivpxqWfZiUQnCdmcFtFfqhIC0Xv90gaH2F4jBCTfFStR1yJQyrv3Zm6s8vCRjcLq9LgTLxf0T2svhP+AxtE/dymlufG40BR9Geoj7OHcGXF7gwRu6urBBthkkiSH+GAkvwKtTPyGbgEj4srj2b3M1vxhMiJp+fYQfVlbDw+Efm1XGmGxKI0tEbs5D5xqOlXq8ll7JfGp+YzIWVVjBG93g6RLUaK9mpQ1O22sFR8hbUiZv7S2XGziikizz0v+s/duLZTY0vVlq+bLf9yteu5jskVWCRicpe452vUnLaKsaLs7RIx1/ayNsNEkd2L67d7tH9wvzfH7sYLWtwQ7V4BnytuvGbm74/FeWWDaEq3pfxAkZRPEd3K0SlfL+4JX2jTb9s4SRwNNxr+CvgD3IUTO3HUjUv0XrGE1Uv0L0Snsr0LPvZc/Atz61znej4TOQAAAABJRU5ErkJggg=="

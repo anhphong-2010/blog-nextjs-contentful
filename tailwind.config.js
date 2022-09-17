@@ -19,7 +19,7 @@ module.exports = {
         },
       },
       animation: {
-        "fly": "slideY 4s linear infinite",
+        fly: "slideY 4s linear infinite",
       },
     },
   },
@@ -41,7 +41,7 @@ module.exports = {
             maxWidth: "700px",
           },
           "@screen lg": {
-            maxWidth: "800px",
+            maxWidth: "1024px",
           },
           "@screen xl": {
             maxWidth: "1200px",
