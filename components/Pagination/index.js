@@ -41,7 +41,7 @@ export default function Pagination(props) {
           )}
         </li>
         <li
-          className={`${PaginationStyles.pagination__listItem} ${PaginationStyles.pagination__listItem__pageDescriptor}`}
+          className={`hidden md:block ${PaginationStyles.pagination__listItem} ${PaginationStyles.pagination__listItem__pageDescriptor}`}
         >
           Page {currentPage} of {totalPages}
         </li>

@@ -1,10 +1,10 @@
-const SITE_URL = "http://localhost:3000";
+const SITE_URL = process.env.SITE_URL;
 
 export const Config = {
   site: {
     owner: "AP",
     title: "Next.js + Contentful blog site",
-    domain: "http://localhost:3000",
+    domain: SITE_URL,
     email: "anhphongnw.2010@gmail.com",
   },
   pageMeta: {

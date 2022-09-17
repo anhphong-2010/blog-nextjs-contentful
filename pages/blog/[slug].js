@@ -1,4 +1,5 @@
 import { Config } from "@utils/config";
+import _ from "lodash";
 import ContentfulApi from "@services/contentfulApi";
 import SEO from "@components/SEO";
 import Post from "@components/Post";
@@ -12,6 +13,7 @@ export default function PostWrapper(props) {
         title={post.title}
         description={post.content}
         url={`${Config.pageMeta.blogIndex.url}/${post.slug}`}
+        image={_.get(post, "thumbnail.url", "")}
         // canonical={post.externalUrl ? post.externalUrl : false}
       />
       <div className="container mx-4 sm:mx-auto">

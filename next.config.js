@@ -4,7 +4,7 @@ var CaseSensitivePathsPlugin = require("case-sensitive-paths-webpack-plugin");
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["images.ctfassets.net"],
+    domains: ["images.ctfassets.net", "placehold.jp"],
   },
   webpack(config) {
     config.module.rules.push({

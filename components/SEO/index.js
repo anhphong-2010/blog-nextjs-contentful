@@ -1,9 +1,8 @@
 import Head from "next/head";
-import OpenGraph from "@utils/open-graph";
 import { Config } from "@utils/config";
 
 export default function PageMeta(props) {
-  const { title, description } = props;
+  const { title, description, image } = props;
   const siteTitle = `${title} | ${Config.site.title}`;
 
   return (
@@ -30,11 +29,8 @@ export default function PageMeta(props) {
       {/* <meta property="og:url" content={url} />
       <meta property="twitter:url" content={url} /> */}
 
-      <meta property="og:image" content={OpenGraph.generateImageUrl(title)} />
-      <meta
-        property="twitter:image"
-        content={OpenGraph.generateImageUrl(title)}
-      />
+      <meta property="og:image" content={image} />
+      <meta property="twitter:image" content={image} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta

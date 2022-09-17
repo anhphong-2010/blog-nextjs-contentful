@@ -79,6 +79,9 @@ export default class ContentfulApi {
           title
           description
           slug
+          seoImage {
+            url
+          }
         }
       }
     }`;
@@ -104,7 +107,7 @@ export default class ContentfulApi {
           title
           slug
           description
-          thumbnail{
+          thumbnail {
             url
           }
         }
@@ -155,7 +158,7 @@ export default class ContentfulApi {
             title
             slug
             description
-            thumbnail{
+            thumbnail {
               url
             }
           }
@@ -231,7 +234,7 @@ export default class ContentfulApi {
           title
           slug
           description
-          thumbnail{
+          thumbnail {
             url
           }
           content {
