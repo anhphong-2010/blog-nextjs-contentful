@@ -7,7 +7,7 @@ export default function PageMeta(props) {
 
   return (
     <Head>
-      <title>{siteTitle}</title>
+      <title>{title}</title>
 
       {/* {canonical && <link rel="canonical" href={canonical} />} */}
 
@@ -18,7 +18,7 @@ export default function PageMeta(props) {
         href={`https://${Config.site.domain}/feed.xml`}
       />
 
-      <meta name="title" content={siteTitle} />
+      <meta name="title" content={title} />
       <meta property="og:title" content={title} />
       <meta property="twitter:title" content={title} />
 
