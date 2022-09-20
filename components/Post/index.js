@@ -20,10 +20,10 @@ export default function Post(props) {
           date={post.date}
         />
       </div>
-      {post.description && <div className="my-4">{post.description}</div>}
+      {/* {post.description && <div className="my-4">{post.description}</div>} */}
       <RichTextPageContent
         richTextBodyField={post.content}
-        renderH2Links={true}
+        // renderH2Links={true}
       />
     </article>
   );
