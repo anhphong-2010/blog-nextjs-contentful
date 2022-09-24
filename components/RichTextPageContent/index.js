@@ -84,7 +84,7 @@ export function getRichTextRenderOptions(links, options) {
             >
               <h2
                 id={`${slugifyString(children[0])}`}
-                className={TypographyStyles.heading__h2}
+                className="font-bold text-2xl md:text-3xl mb-6 font-body"
               >
                 {children}
               </h2>
@@ -98,7 +98,11 @@ export function getRichTextRenderOptions(links, options) {
             </div>
           );
         } else {
-          return <h2 className={TypographyStyles.heading__h2}>{children}</h2>;
+          return (
+            <h2 className="font-bold text-2xl md:text-3xl mb-6 font-body">
+              {children}
+            </h2>
+          );
         }
       },
       [BLOCKS.HEADING_3]: (node, children) => (
@@ -114,7 +118,9 @@ export function getRichTextRenderOptions(links, options) {
         <h6 className={TypographyStyles.heading__h6}>{children}</h6>
       ),
       [BLOCKS.PARAGRAPH]: (node, children) => (
-        <p className={TypographyStyles.bodyCopy}>{children}</p>
+        <p className="font-normal text-base md:text-xl my-6 font-body">
+          {children}
+        </p>
       ),
       [BLOCKS.QUOTE]: (node, children) => (
         <blockquote className={TypographyStyles.blockquote}>

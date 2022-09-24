@@ -21,7 +21,7 @@ export default function CodeBlock(props) {
   const { language, code } = props;
 
   return (
-    <pre className={`${CodeBlockStyle.codeBlock} shadow-lg line-numbers language-${language}`}>
+    <pre className={`${CodeBlockStyle.codeBlock} shadow-lg language-${language}`}>
       <code className={CodeBlockStyle.codeBlock__inner}>{code}</code>
     </pre>
   );
