@@ -141,7 +141,7 @@ export function getRichTextRenderOptions(links, options) {
         </li>
       ),
       [BLOCKS.TABLE]: (node, children) => (
-        <div class="rounded-xl bg-gradient-to-r from-sky-50 to-indigo-100 p-0 md:p-10">
+        <div className="rounded-xl bg-gradient-to-r from-sky-50 to-indigo-100 p-0 md:p-10">
           <table className="rounded-xl overflow-hidden table-auto w-full mx-auto shadow-lg">
             <tbody>{children}</tbody>
           </table>
