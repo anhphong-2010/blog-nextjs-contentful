@@ -16,7 +16,7 @@ export default function Post(props) {
       {/* {post.externalUrl && <ExternalUrl url={post.externalUrl} />} */}
       {/* {post.tags !== null && <Tags tags={post.tags} />} */}
       <div
-        className="mb-4 relative bg-slate-100 rounded-tr-lg rounded-tl-lg overflow-hidden"
+        className="relative mb-4 bg-slate-100 rounded-tr-lg rounded-tl-lg overflow-hidden"
         style={{ width: "100%", height: 400 }}
       >
         <Image
@@ -27,7 +27,7 @@ export default function Post(props) {
           className="group-hover:scale-110 duration-700"
         />
       </div>
-      <div className="absolute dark:bg-gray-900 bg-white rounded-br-lg rounded-bl-lg translate-1/2 shadow-lg top-44 container p-4">
+      <div className="max-w-screen-lg w-full m-auto">
         <h1 className={TypographyStyles.heading__h1}>{post.title}</h1>
         <div className="my-4">
           <PublishedDate

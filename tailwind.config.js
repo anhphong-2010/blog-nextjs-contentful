@@ -25,6 +25,7 @@ module.exports = {
     extend: {
       colors: {
         "regal-blue": "#243c5a",
+        dark: "rgba(31, 41, 55 ,1)",
       },
       keyframes: {
         slideY: {

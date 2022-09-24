@@ -140,6 +140,20 @@ export function getRichTextRenderOptions(links, options) {
           {children}
         </li>
       ),
+      [BLOCKS.TABLE]: (node, children) => (
+        <div class="rounded-xl bg-gradient-to-r from-sky-50 to-indigo-100 p-0 md:p-10">
+          <table className="rounded-xl overflow-hidden table-auto w-full mx-auto shadow-lg">
+            <tbody>{children}</tbody>
+          </table>
+        </div>
+      ),
+      [BLOCKS.TABLE_ROW]: (node, children) => (
+        <tr className="odd:bg-gray-100 even:bg-gray-300 p-4">{children}</tr>
+      ),
+      [BLOCKS.TABLE_CELL]: (node, children) => (
+        <td className="text-black p-4">{children}</td>
+      ),
+      [BLOCKS.TABLE_HEADER_CELL]: (node, children) => <thead className="font-semibold p-4">{children}</thead>,
       [INLINES.EMBEDDED_ENTRY]: (node, children) => {
         const entry = entryMap.get(node.data.target.sys.id);
         const { __typename } = entry;
