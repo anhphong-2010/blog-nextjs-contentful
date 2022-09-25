@@ -118,7 +118,7 @@ export function getRichTextRenderOptions(links, options) {
         <h6 className={TypographyStyles.heading__h6}>{children}</h6>
       ),
       [BLOCKS.PARAGRAPH]: (node, children) => (
-        <p className="font-normal text-base md:text-xl my-6 font-body">
+        <p className="font-normal text-base my-6">
           {children}
         </p>
       ),
@@ -141,7 +141,7 @@ export function getRichTextRenderOptions(links, options) {
         </li>
       ),
       [BLOCKS.TABLE]: (node, children) => (
-        <div className="rounded-xl bg-gradient-to-r from-sky-50 to-indigo-100 p-0 md:p-10">
+        <div className="rounded-xl bg-gradient-to-r dark:from-sky-100 from-sky-300 dark:to-indigo-200 to-indigo-400 p-0 md:p-10">
           <table className="rounded-xl overflow-hidden table-auto w-full mx-auto shadow-lg">
             <tbody>{children}</tbody>
           </table>

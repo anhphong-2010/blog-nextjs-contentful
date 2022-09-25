@@ -5,8 +5,19 @@ export const postFormatter = {
     return _.get(itemData, "title", "");
   },
 
+  authorName: (itemData) => {
+    return _.get(itemData, "author.name", "");
+  },
+
   description: (itemData) => {
     return _.get(itemData, "description", "");
+  },
+
+  authorAvatar: (itemData) => {
+    const name = postFormatter.authorName(itemData);
+    if (!_.get(itemData, "author.avatar"))
+      return `https://ui-avatars.com/api/?name=${name}`;
+    return _.get(itemData, "author.avatar.url", "");
   },
 
   thumbnail: (itemData) => {

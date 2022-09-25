@@ -1,9 +1,7 @@
 import RichTextPageContentStyles from "@styles/RichTextPageContent.module.css";
-import TypographyStyles from "@styles/Typography.module.css";
 // import Tags from "@components/Post/Tags";
 import PublishedDate from "@components/PublishedDate";
-// import Author from "@components/Post/Author";
-// import ExternalUrl from "@components/Post/ExternalUrl";
+import Author from "@components/Author";
 import RichTextPageContent from "@components/RichTextPageContent";
 import Image from "next/image";
 import { postFormatter } from "@formatters/post";
@@ -13,10 +11,8 @@ export default function Post(props) {
 
   return (
     <article className={`relative mb-4 ${RichTextPageContentStyles.page}`}>
-      {/* {post.externalUrl && <ExternalUrl url={post.externalUrl} />} */}
-      {/* {post.tags !== null && <Tags tags={post.tags} />} */}
       <div
-        className="relative mb-4 bg-slate-100 rounded-tr-lg rounded-tl-lg overflow-hidden"
+        className="relative mb-4 bg-slate-100 rounded-lg overflow-hidden"
         style={{ width: "100%", height: 400 }}
       >
         <Image
@@ -28,13 +24,17 @@ export default function Post(props) {
         />
       </div>
       <div className="max-w-screen-lg w-full m-auto">
-        <h1 className={TypographyStyles.heading__h1}>{post.title}</h1>
-        <div className="my-4">
+        <h1 className="py-4 text-center font-bold text-4xl">{post.title}</h1>
+        <div className="my-4 text-center">
           <PublishedDate
-            classStr="text-gray-900 dark:text-white"
+            classStr="text-gray-500 dark:text-white"
             date={post.date}
           />
         </div>
+        <div className="my-4">
+          <Author size={40} justify="center" data={post} />
+        </div>
+        <hr className="py-4" />
         {/* {post.description && <div className="my-4">{post.description}</div>} */}
         <RichTextPageContent
           richTextBodyField={post.content}

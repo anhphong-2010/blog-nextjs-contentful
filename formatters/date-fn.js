@@ -26,6 +26,20 @@ function addLeadingZero(num) {
   return num;
 }
 
+const getOrdinalNum = (number) => {
+  let selector;
+
+  if (number <= 0) {
+    selector = 4;
+  } else if ((number > 3 && number < 21) || number % 10 > 3) {
+    selector = 0;
+  } else {
+    selector = number % 10;
+  }
+
+  return number + ["th", "st", "nd", "rd", ""][selector];
+};
+
 /*
  * Format a blog post published date for a datetime
  * HTML element.
@@ -45,9 +59,11 @@ export function formatPublishedDateForDateTime(dateString) {
 export function formatPublishedDateForDisplay(dateString) {
   const timestamp = Date.parse(dateString);
   const date = new Date(timestamp);
-  return `${date.getDate()} ${getMonthStringFromInt(
-    date.getMonth()
-  )} ${date.getFullYear()}`;
+  const options = { weekday: "long" };
+  const dayOfWeek = new Intl.DateTimeFormat("en-US", options).format(date);
+  return `${dayOfWeek}, ${getOrdinalNum(
+    date.getDate()
+  )} ${getMonthStringFromInt(date.getMonth())} ${date.getFullYear()}`;
 }
 
 export default {

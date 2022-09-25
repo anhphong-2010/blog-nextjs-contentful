@@ -1,14 +1,14 @@
 import {
   formatPublishedDateForDateTime,
   formatPublishedDateForDisplay,
-} from "@utils/date-fn";
+} from "@formatters/date-fn";
 
 export function PublishedDate(props) {
   const { date, classStr } = props;
 
   return (
     <time
-      className={`flex font-bold ${classStr}`}
+      className={`font-normal ${classStr}`}
       dateTime={formatPublishedDateForDateTime(date)}
     >
       {formatPublishedDateForDisplay(date)}

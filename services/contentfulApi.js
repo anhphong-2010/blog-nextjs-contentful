@@ -103,6 +103,12 @@ export default class ContentfulApi {
           sys {
             id
           }
+          author{
+            name
+            avatar{
+              url
+            }
+          }
           date
           title
           slug
@@ -153,6 +159,12 @@ export default class ContentfulApi {
           items {
             sys {
               id
+            }
+            author{
+              name
+              avatar{
+                url
+              }
             }
             date
             title
@@ -229,6 +241,12 @@ export default class ContentfulApi {
         items {
           sys {
             id
+          }
+          author{
+            name
+            avatar{
+              url
+            }
           }
           date
           title

@@ -8,20 +8,6 @@ module.exports = {
 
   darkMode: "class", // or 'media' or 'class'
   theme: {
-    fontFamily: {
-      body: [
-        "-apple-system",
-        "BlinkMacSystemFont",
-        "Segoe UI",
-        "Roboto",
-        "Helvetica",
-        "Arial",
-        "sans-serif",
-        "Apple Color Emoji",
-        "Segoe UI Emoji",
-        "Segoe UI Symbol",
-      ],
-    },
     extend: {
       colors: {
         "regal-blue": "#243c5a",
