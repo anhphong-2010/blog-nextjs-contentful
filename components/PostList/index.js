@@ -4,6 +4,8 @@ import Pagination from "@components/Pagination";
 import PublishedDate from "@components/PublishedDate";
 import ReactMarkdownRenderers from "@utils/react-mark-down-renderers";
 import Image from "next/image";
+import Author from "@components/Author";
+import Tags from "@components/Tags";
 import { postFormatter } from "@formatters/post";
 import _ from "lodash";
 
@@ -33,10 +35,14 @@ export default function PostList(props) {
                 </div>
 
                 <div className="w-full md:w-2/3">
-                  <PublishedDate date={post.date} />
+                  <div className="flex items-center space-x-2 md:space-x-4">
+                    <Author size={35} justify="center" data={post} />
+                    <div>|</div>
+                    <PublishedDate date={post.date} />
+                  </div>
 
                   <Link href={`blog/${post.slug}`} passHref>
-                    <h2 className="text-3xl md:text-4xl font-bold py-4 cursor-pointer">
+                    <h2 className="text-2xl md:text-3xl font-bold my-3 cursor-pointer">
                       {post.title}
                     </h2>
                   </Link>
@@ -45,6 +51,9 @@ export default function PostList(props) {
                     children={post.description}
                     components={ReactMarkdownRenderers(post.description)}
                   />
+                  <div className="mt-4">
+                    <Tags tags={_.get(post, "tags.items")} />
+                  </div>
                 </div>
               </article>
             </li>

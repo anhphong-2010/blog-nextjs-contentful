@@ -64,7 +64,7 @@
 }
 
 .bodyCopy__bold {
-  font-weight: var(--font-weight-bold);
+  font-weight: 600;
 }
 
 .blockquote {
@@ -78,7 +78,7 @@
 .blockquote p {
   /* todo - clamp! */
   font-style: italic;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1.6;
 }
 

@@ -166,6 +166,11 @@ export default class ContentfulApi {
                 url
               }
             }
+            tags: tagsCollection {
+              items {
+                title
+              }
+            }
             date
             title
             slug
@@ -254,6 +259,11 @@ export default class ContentfulApi {
           description
           thumbnail {
             url
+          }
+          tags: tagsCollection {
+            items {
+              title
+            }
           }
           content {
             json
