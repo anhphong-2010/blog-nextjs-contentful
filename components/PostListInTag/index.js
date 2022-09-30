@@ -38,7 +38,7 @@ export default function PostListInTag(props) {
                     <PublishedDate date={post.date} />
                   </div>
 
-                  <Link href={`blog/${post.slug}`} passHref>
+                  <Link href={`/blog/${post.slug}`} passHref>
                     <h2 className="text-2xl md:text-3xl font-bold my-3 cursor-pointer">
                       {post.title}
                     </h2>

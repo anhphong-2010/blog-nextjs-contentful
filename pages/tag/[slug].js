@@ -17,7 +17,7 @@ export default function TagWrapper(props) {
       <SEO
         title={tagData.title}
         description={tagData.title}
-        url={`${Config.pageMeta.blogIndex.url}/${tagData.slug}`}
+        url={`${Config.pageMeta.tagIndex.url}/${tagData.slug}`}
         // image={_.get(post, "thumbnail.url", "")}
       />
 

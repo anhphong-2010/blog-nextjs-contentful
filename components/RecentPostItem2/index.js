@@ -20,10 +20,10 @@ export default function RecentPostItem(props) {
               style={{ height: 2 }}
               className="w-14 bg-sky-500 duration-700"
             ></div>
-            <PublishedDate classStr="text-sky-500" date={post.date} />
+            <PublishedDate classStr="text-sky-500 font-semibold" date={post.date} />
           </div>
           <Link className="cursor-pointer" href={`/blog/${post.slug}`} passHref>
-            <h2 className="text-gray-900 dark:text-white text-3xl font-medium py-4 cursor-pointer">
+            <h2 className="text-gray-900 dark:text-white text-3xl font-semibold py-4 cursor-pointer">
               {post.title}
             </h2>
           </Link>

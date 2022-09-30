@@ -188,6 +188,7 @@ export default class ContentfulApi {
             tags: tagsCollection {
               items {
                 title
+                slug
               }
             }
             date
@@ -302,6 +303,7 @@ export default class ContentfulApi {
           tags: tagsCollection {
             items {
               title
+              slug
             }
           }
           content {
@@ -374,6 +376,7 @@ export default class ContentfulApi {
               tags: tagsCollection {
                 items {
                   title
+                  slug
                 }
               }
               date
