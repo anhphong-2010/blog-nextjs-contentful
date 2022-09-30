@@ -2,14 +2,21 @@ import Link from "next/link";
 import PaginationStyles from "@styles/Pagination.module.css";
 
 export default function Pagination(props) {
-  const { totalPages, currentPage, prevDisabled, nextDisabled } = props;
+  const {
+    totalPages,
+    currentPage,
+    prevDisabled,
+    nextDisabled,
+    url,
+    urlPagination,
+  } = props;
 
   const prevPageUrl =
     currentPage === "2"
-      ? "/blog"
-      : `/blog/page/${parseInt(currentPage, 10) - 1}`;
+      ? `/${url}`
+      : `/${urlPagination}/${parseInt(currentPage, 10) - 1}`;
 
-  const nextPageUrl = `/blog/page/${parseInt(currentPage, 10) + 1}`;
+  const nextPageUrl = `/${urlPagination}/${parseInt(currentPage, 10) + 1}`;
 
   return (
     <div className={PaginationStyles.pagination}>

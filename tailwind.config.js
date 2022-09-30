@@ -5,7 +5,6 @@ module.exports = {
     "./layouts/**/*.{js,ts,jsx,tsx}",
     "./ctf/**/*.{js,ts,jsx,tsx}",
   ],
-
   darkMode: "class", // or 'media' or 'class'
   theme: {
     extend: {
@@ -42,10 +41,10 @@ module.exports = {
             maxWidth: "600px",
           },
           "@screen md": {
-            maxWidth: "700px",
+            maxWidth: "730px",
           },
           "@screen lg": {
-            maxWidth: "1024px",
+            maxWidth: "991px",
           },
           "@screen xl": {
             maxWidth: "1200px",

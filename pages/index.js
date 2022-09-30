@@ -1,5 +1,4 @@
 import RecentPostList from "@components/RecentPostList";
-
 import LayoutMain from "@layouts/LayoutMain";
 import SEO from "@components/SEO";
 import ContentfulApi from "@services/contentfulApi";
@@ -10,9 +9,10 @@ import { renderPropsComposer } from "@utils/props-composer";
 import _ from "lodash";
 
 export default function Home(props) {
-  const { recentPosts, preview, pageContent } = props;
+  const { recentPosts, preview, pageContent, tags } = props;
   const { systemTheme, theme } = useTheme("light");
   const currentTheme = theme === "system" ? systemTheme : theme;
+
   return (
     <div>
       <LayoutMain preview={preview}>
@@ -47,7 +47,7 @@ export default function Home(props) {
           () => null
         )(currentTheme)}
 
-        <RecentPostList posts={recentPosts} />
+        <RecentPostList tags={tags} posts={recentPosts} />
       </LayoutMain>
     </div>
   );
@@ -58,11 +58,13 @@ export async function getStaticProps({ preview = false }) {
   const pageContent = await ContentfulApi.getPageContentBySlug("home", {
     preview: preview,
   });
+  const tags = await ContentfulApi.getTags();
   return {
     props: {
       preview,
       recentPosts,
       pageContent,
+      tags,
     },
   };
 }

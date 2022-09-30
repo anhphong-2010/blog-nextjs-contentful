@@ -95,6 +95,25 @@ export default class ContentfulApi {
     return pageContent.pop();
   }
 
+  static async getTags() {
+    const variables = { limit: 12 };
+    const query = `query GetTagsList($limit: Int!) {
+      tagCollection(limit: $limit) {
+        items {
+          title
+          slug
+        }
+      }
+    }`;
+
+    const response = await this.callContentful(query, variables);
+    const tags = response.data.tagCollection.items
+      ? response.data.tagCollection.items
+      : [];
+
+    return tags;
+  }
+
   static async getRecentPostList() {
     const variables = { limit: Config.pagination.recentPostsSize };
     const query = `query GetRecentPostList($limit: Int!) {
@@ -238,6 +257,25 @@ export default class ContentfulApi {
     return returnSlugs;
   }
 
+  static async getAllTagSlugs() {
+    let page = 1;
+    let shouldQueryMoreSlugs = true;
+    const returnSlugs = [];
+
+    while (shouldQueryMoreSlugs) {
+      const response = await this.getPaginatedSlugs(page);
+
+      if (response.slugs.length > 0) {
+        returnSlugs.push(...response.slugs);
+      }
+
+      shouldQueryMoreSlugs = returnSlugs.length < response.total;
+      page++;
+    }
+
+    return returnSlugs;
+  }
+
   static async getPostBySlug(slug, options = defaultOptions) {
     const variables = { slug, preview: options.preview };
     const query = `query getArticleBySlug($slug: String!, $preview: Boolean!) {
@@ -246,6 +284,7 @@ export default class ContentfulApi {
         items {
           sys {
             id
+            publishedAt
           }
           author{
             name
@@ -311,5 +350,50 @@ export default class ContentfulApi {
       : [];
 
     return post.pop();
+  }
+
+  static async getArticleByTag(slug, options = defaultOptions) {
+    const variables = { slug, preview: options.preview };
+    const query = `query getArticleByTag($slug: String!, $preview: Boolean!) {
+      tagCollection(limit: 1, where: {slug: $slug}, preview: $preview) {
+        items {
+          title
+          slug
+          articlesCollection {
+            total
+            items {
+              sys {
+                id
+              }
+              author{
+                name
+                avatar{
+                  url
+                }
+              }
+              tags: tagsCollection {
+                items {
+                  title
+                }
+              }
+              date
+              title
+              slug
+              description
+              thumbnail {
+                url
+              }
+            }
+          }
+        }
+      }
+    }`;
+
+    const response = await this.callContentful(query, variables, options);
+    const tag = response.data.tagCollection.items
+      ? response.data.tagCollection.items
+      : [];
+
+    return tag;
   }
 }

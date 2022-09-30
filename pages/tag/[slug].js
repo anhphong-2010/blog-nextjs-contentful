@@ -2,31 +2,39 @@ import { Config } from "@utils/config";
 import _ from "lodash";
 import ContentfulApi from "@services/contentfulApi";
 import SEO from "@components/SEO";
-import Post from "@components/Post";
+import PostListInTag from "@components/PostListInTag";
 import LayoutMain from "@layouts/LayoutMain";
 
-export default function PostWrapper(props) {
-  const { post, preview } = props;
+export default function TagWrapper(props) {
+  const { tag, preview } = props;
+
+  const postSummaries = _.get(tag, "0.articlesCollection.items");
+
+  const tagData = _.get(tag, "[0]", {});
+
   return (
     <LayoutMain preview={preview}>
       <SEO
-        title={post.title}
-        description={post.content}
-        url={`${Config.pageMeta.blogIndex.url}/${post.slug}`}
-        image={_.get(post, "thumbnail.url", "")}
-        // canonical={post.externalUrl ? post.externalUrl : false}
+        title={tagData.title}
+        description={tagData.title}
+        url={`${Config.pageMeta.blogIndex.url}/${tagData.slug}`}
+        // image={_.get(post, "thumbnail.url", "")}
       />
-      <div className="container mx-4 py-12 sm:mx-auto">
-        <Post post={post} />
+
+      <div className="container my-16 mx-4 sm:mx-auto">
+        <div className="text-4xl text-black dark:text-white my-6">
+          #{tagData.title}
+        </div>
+        <PostListInTag posts={postSummaries} />
       </div>
     </LayoutMain>
   );
 }
 
 export async function getStaticPaths() {
-  const blogPostSlugs = await ContentfulApi.getAllPostSlugs();
+  const tagSlugs = await ContentfulApi.getAllTagSlugs();
 
-  const paths = blogPostSlugs.map((slug) => {
+  const paths = tagSlugs.map((slug) => {
     return { params: { slug } };
   });
 
@@ -39,14 +47,14 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, preview = false }) {
-  const post = await ContentfulApi.getPostBySlug(params.slug, {
+  const tag = await ContentfulApi.getArticleByTag(params.slug, {
     preview: preview,
   });
 
   // Add this with fallback: "blocking"
   // So that if we do not have a post on production,
   // the 404 is served
-  if (!post) {
+  if (!tag) {
     return {
       notFound: true,
     };
@@ -55,7 +63,7 @@ export async function getStaticProps({ params, preview = false }) {
   return {
     props: {
       preview,
-      post,
+      tag,
     },
   };
 }

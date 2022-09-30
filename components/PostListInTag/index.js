@@ -9,11 +9,8 @@ import Tags from "@components/Tags";
 import { postFormatter } from "@formatters/post";
 import _ from "lodash";
 
-export default function PostList(props) {
-  const { posts, currentPage, totalPages } = props;
-
-  const nextDisabled = parseInt(currentPage, 10) === parseInt(totalPages, 10);
-  const prevDisabled = parseInt(currentPage, 10) === 1;
+export default function PostListInTag(props) {
+  const { posts } = props;
 
   return (
     <>
@@ -59,17 +56,6 @@ export default function PostList(props) {
             </li>
           ))}
       </ol>
-
-      {totalPages > 1 && (
-        <Pagination
-          totalPages={totalPages}
-          currentPage={currentPage}
-          nextDisabled={nextDisabled}
-          prevDisabled={prevDisabled}
-          url={"blog"}
-          urlPagination={"blog/page"}
-        />
-      )}
     </>
   );
 }

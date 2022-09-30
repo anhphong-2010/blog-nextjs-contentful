@@ -5,6 +5,7 @@
 
 :root {
   --font-family-main : 'Noto Sans', sans-serif;
+  --tag-underline-color: "#0ea5e9"
 }
 
 html,

@@ -7,8 +7,8 @@ export function Author(props) {
 
   const justifySys = {
     center: "justify-center",
-    flexStart: "justify-start",
-    flexEnd: "justify-end",
+    start: "justify-start",
+    end: "justify-end",
   };
   return (
     <>
@@ -32,7 +32,7 @@ export function Author(props) {
               className="rounded-full"
             />
           </div>
-          <div className="font-semibold">{postFormatter.authorName(data)}</div>
+          <div className="text-sm font-semibold">{postFormatter.authorName(data)}</div>
         </div>
       )}
     </>

@@ -61,9 +61,9 @@ export function formatPublishedDateForDisplay(dateString) {
   const date = new Date(timestamp);
   const options = { weekday: "long" };
   const dayOfWeek = new Intl.DateTimeFormat("en-US", options).format(date);
-  return `${dayOfWeek}, ${getOrdinalNum(
-    date.getDate()
-  )} ${getMonthStringFromInt(date.getMonth())} ${date.getFullYear()}`;
+  return `${getMonthStringFromInt(
+    date.getMonth()
+  )} ${date.getDate()}, ${date.getFullYear()}`;
 }
 
 export default {
