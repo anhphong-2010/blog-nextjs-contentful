@@ -21,7 +21,7 @@ export default function TagWrapper(props) {
         // image={_.get(post, "thumbnail.url", "")}
       />
 
-      <div className="container my-16 mx-4 sm:mx-auto">
+      <div className="container my-6 lg:my-16 mx-4 sm:mx-auto">
         <div className="text-4xl text-black dark:text-white my-6">
           #{tagData.title}
         </div>

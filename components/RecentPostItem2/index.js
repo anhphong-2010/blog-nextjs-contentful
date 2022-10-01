@@ -23,13 +23,13 @@ export default function RecentPostItem(props) {
             <PublishedDate classStr="text-sky-500 font-semibold" date={post.date} />
           </div>
           <Link className="cursor-pointer" href={`/blog/${post.slug}`} passHref>
-            <h2 className="text-gray-900 dark:text-white text-3xl font-semibold py-4 cursor-pointer">
+            <h2 className="text-gray-900 dark:text-white text-xl md:text-2xl font-semibold py-4 cursor-pointer">
               {post.title}
             </h2>
           </Link>
 
           <div
-            className={`text-gray-900 dark:text-white text-sm ${ContentListStyles.contentList__excerpt}`}
+            className={`text-gray-900 dark:text-white text-xs md:text-sm ${ContentListStyles.contentList__excerpt}`}
           >
             <ReactMarkdown
               children={post.description}

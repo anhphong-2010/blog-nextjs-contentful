@@ -16,7 +16,7 @@ export default function PostWrapper(props) {
         image={_.get(post, "thumbnail.url", "")}
         // canonical={post.externalUrl ? post.externalUrl : false}
       />
-      <div className="container mx-4 py-12 sm:mx-auto">
+      <div className="container mx-4 py-6 lg:py-12 sm:mx-auto">
         <Post post={post} />
       </div>
     </LayoutMain>

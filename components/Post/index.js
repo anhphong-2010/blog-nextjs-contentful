@@ -16,13 +16,13 @@ export default function Post(props) {
   const publishedAt = _.get(post, "sys.publishedAt", "");
   return (
     <article className={`relative mb-4 ${RichTextPageContentStyles.page}`}>
-      <div className="w-full mb-4">
+      <div className="w-full mb-6">
         <div className="flex flex-col justify-start items-start">
-          <div className="py-4 w-full flex flex-col md:flex-row justify-between items-center">
-            <h1 className="text-center md:text-left font-medium md:font-bold text-3xl md:text-4xl">
+          <div className="py-4 w-full flex flex-col md:flex-row justify-between items-start md:items-center">
+            <h1 className="md:w-2/3 text-center md:text-left font-bold text-3xl lg:text-4xl">
               {post.title}
             </h1>
-            <div className="my-2">
+            <div className="mt-4 md:my-2">
               <Author size={35} justify="start" data={post} />
             </div>
           </div>
