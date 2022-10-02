@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { Config } from "@utils/config";
 import Tags from "@components/Tags";
-import RecentPostItemTest from "@components/RecentPostItem2";
+import RecentPostItem from "@components/RecentPostItem";
 
 export default function RecentPostList(props) {
   const { posts, tags } = props;
@@ -20,11 +20,11 @@ export default function RecentPostList(props) {
         <h2 className="py-4 dark:text-black text-white text-3xl mb-4 font-bold">
           Recent articles
         </h2>
-        <div className="grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mb-4">
+        <div className="grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mb-6">
           {!!posts &&
             posts.map((post, index) => (
               <React.Fragment key={index}>
-                <RecentPostItemTest post={post} />
+                <RecentPostItem post={post} />
               </React.Fragment>
             ))}
         </div>

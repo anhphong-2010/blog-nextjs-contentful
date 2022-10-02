@@ -22,17 +22,19 @@ export default function PostList(props) {
           posts.map((post) => (
             <li className="py-4" key={post.sys.id}>
               <article className="flex flex-col md:flex-row md:space-x-6">
-                <div
-                  className="mb-4 md:mb-0 w-full md:w-1/3 relative bg-slate-100 rounded-lg overflow-hidden border dark:border-white border-gray-300"
-                  style={{ height: 200 }}
-                >
-                  <Image
-                    src={postFormatter.thumbnail(post)}
-                    alt={post.title}
-                    layout="fill"
-                    objectFit="cover"
-                  />
-                </div>
+                <Link href={`blog/${post.slug}`} passHref>
+                  <div
+                    className="cursor-pointer mb-4 md:mb-0 w-full md:w-1/3 relative bg-slate-100 rounded-lg overflow-hidden border dark:border-white border-gray-300"
+                    style={{ height: 200 }}
+                  >
+                    <Image
+                      src={postFormatter.thumbnail(post)}
+                      alt={post.title}
+                      layout="fill"
+                      objectFit="cover"
+                    />
+                  </div>
+                </Link>
 
                 <div className="w-full md:w-2/3">
                   <div className="flex items-center space-x-2 md:space-x-4">

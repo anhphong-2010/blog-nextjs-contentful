@@ -42,7 +42,7 @@
 .contentList__excerpt p {
   font-size: 0.9rem;
   line-height: 1.8rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   font-weight: var(--font-weight-light);
   font-family: var(--font-family-main);
   color: var(--color-foreground);

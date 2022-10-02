@@ -47,7 +47,7 @@ export default function Post(props) {
       >
         {(resProps) => (
           <div
-            className="relative mb-4 bg-slate-100 rounded-lg overflow-hidden"
+            className="relative mb-4 bg-slate-100 rounded-lg overflow-hidden shadow-lg"
             {...resProps}
           >
             <Image
@@ -67,7 +67,7 @@ export default function Post(props) {
             <Tags tags={_.get(post, "tags.items")} />
           </div>
         )}
-        <hr className="py-4" />
+        <hr className="my-6 dark:border-gray-300 border-black" />
         <div
           className={`text-gray-900 dark:text-white text-sm ${ContentListStyles.contentList__excerpt}`}
         >
