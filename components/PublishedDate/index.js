@@ -7,10 +7,7 @@ export function PublishedDate(props) {
   const { date, classStr, text } = props;
 
   return (
-    <time
-      className={`text-xs sm:text-sm italic ${classStr}`}
-      dateTime={formatPublishedDateForDateTime(date)}
-    >
+    <time className={classStr} dateTime={formatPublishedDateForDateTime(date)}>
       {text && `${text} `}
       {formatPublishedDateForDisplay(date)}
     </time>

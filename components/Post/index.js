@@ -13,30 +13,33 @@ import _ from "lodash";
 
 export default function Post(props) {
   const { post } = props;
-  const publishedAt = _.get(post, "sys.publishedAt", "");
+  // const publishedAt = _.get(post, "sys.publishedAt", "");
   return (
-    <article className={`relative mb-4 ${RichTextPageContentStyles.page}`}>
+    <article
+      className={`max-w-screen-lg relative mb-4 ${RichTextPageContentStyles.page}`}
+    >
       <div className="w-full mb-6">
-        <div className="flex flex-col justify-start items-start">
-          <div className="py-4 w-full flex flex-col md:flex-row justify-between items-start md:items-center">
-            <h1 className="md:w-2/3 text-center md:text-left font-bold text-3xl lg:text-4xl">
+        <div className="mx-4 sm:mx-0 flex flex-col justify-start items-start">
+          <div className="py-4">
+            <h1
+              style={{ lineHeight: "3.2rem" }}
+              className="text-left font-extrabold text-2xl sm:text-3xl lg:text-4xl"
+            >
               {post.title}
             </h1>
-            <div className="mt-4 md:my-2">
-              <Author size={35} justify="start" data={post} />
-            </div>
           </div>
           <div className="w-full flex justify-between items-center">
-            <PublishedDate
-              text={"Published on"}
-              classStr="text-gray-500 dark:text-gray-300"
-              date={post.date}
-            />
-            <PublishedDate
+            <div>
+              <div className="md:my-2">
+                <Author size={35} data={post} published />
+              </div>
+            </div>
+
+            {/* <PublishedDate
               text={"Last updated on"}
-              classStr="text-gray-500 dark:text-gray-300"
+              classStr="text-gray-500 text-xs dark:text-gray-300 font-bold"
               date={publishedAt}
-            />
+            /> */}
           </div>
         </div>
       </div>
@@ -47,7 +50,7 @@ export default function Post(props) {
       >
         {(resProps) => (
           <div
-            className="relative mb-4 bg-slate-100 rounded-lg overflow-hidden shadow-lg"
+            className="relative mb-4 bg-slate-100 sm:rounded-lg overflow-hidden shadow-md"
             {...resProps}
           >
             <Image
@@ -61,7 +64,7 @@ export default function Post(props) {
         )}
       </ResponsiveProps>
 
-      <div className="max-w-screen-lg w-full m-auto">
+      <div className="mx-4 sm:mx-0">
         {!!_.get(post, "tags.items.length") && (
           <div className="flex justify-center items-center my-6">
             <Tags tags={_.get(post, "tags.items")} />

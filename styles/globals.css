@@ -1,10 +1,10 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap');
 
 :root {
-  --font-family-main : 'Montserrat', sans-serif;
+  --font-family-main : 'Noto Sans', sans-serif;
   --tag-underline-color: "#0ea5e9"
 }
 
