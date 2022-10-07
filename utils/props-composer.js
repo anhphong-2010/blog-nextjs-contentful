@@ -13,7 +13,6 @@ export const renderPropsComposer = (...fns) => {
 
   return (props) => {
     const renderPropsObj = _.find(ListFns, (fn) => fn.matcher(props));
-
     if (renderPropsObj) {
       return renderPropsObj.render(props);
     }
