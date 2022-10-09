@@ -1,4 +1,5 @@
 import { Config } from "@utils/config";
+import _ from "lodash";
 
 const defaultOptions = {
   preview: false,
@@ -146,6 +147,38 @@ export default class ContentfulApi {
       : [];
 
     return recentPosts;
+  }
+
+  static async getAllPostList(options = defaultOptions) {
+    const variables = { preview: options.preview };
+    const query = `query GetAllPostList {
+      articleCollection(order: date_DESC) {
+        items {
+          sys {
+            id
+          }
+          author{
+            name
+            avatar{
+              url
+            }
+          }
+          date
+          title
+          slug
+          description
+          thumbnail {
+            url
+          }
+        }
+      }
+    }`;
+
+    const response = await this.callContentful(query, variables);
+
+    const posts = _.get(response, "data.articleCollection.items", []);
+
+    return posts;
   }
 
   static async getTotalPostsNumber() {

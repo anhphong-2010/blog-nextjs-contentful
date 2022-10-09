@@ -2,7 +2,7 @@ import { Config } from "@utils/config";
 import _ from "lodash";
 import ContentfulApi from "@services/contentfulApi";
 import SEO from "@components/SEO";
-import PostListInTag from "@components/PostListInTag";
+import PostListOutSizeBlogs from "@components/PostListOutSizeBlogs";
 import LayoutMain from "@layouts/LayoutMain";
 
 export default function TagWrapper(props) {
@@ -25,7 +25,7 @@ export default function TagWrapper(props) {
         <div className="text-4xl text-black dark:text-white my-6">
           #{tagData.title}
         </div>
-        <PostListInTag posts={postSummaries} />
+        <PostListOutSizeBlogs posts={postSummaries} />
       </div>
     </LayoutMain>
   );

@@ -1,3 +1,4 @@
+import React from "react";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import PublishedDate from "@components/PublishedDate";
@@ -23,6 +24,8 @@ export default function Post(props) {
               alt={post.title}
               layout="fill"
               objectFit="cover"
+              placeholder="blur"
+              blurDataURL="/images/path-to-blur-image.jpg"
             />
           </div>
         </Link>

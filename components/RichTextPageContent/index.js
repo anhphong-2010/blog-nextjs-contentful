@@ -118,9 +118,7 @@ export function getRichTextRenderOptions(links, options) {
         <h6 className={TypographyStyles.heading__h6}>{children}</h6>
       ),
       [BLOCKS.PARAGRAPH]: (node, children) => (
-        <p className="font-normal text-base my-4">
-          {children}
-        </p>
+        <p className="font-normal text-base my-4">{children}</p>
       ),
       [BLOCKS.QUOTE]: (node, children) => (
         <blockquote className={TypographyStyles.blockquote}>
@@ -148,12 +146,16 @@ export function getRichTextRenderOptions(links, options) {
         </div>
       ),
       [BLOCKS.TABLE_ROW]: (node, children) => (
-        <tr className="odd:bg-gray-100 even:bg-gray-300 p-2 lg:p-4">{children}</tr>
+        <tr className="odd:bg-gray-100 even:bg-gray-300 p-2 lg:p-4">
+          {children}
+        </tr>
       ),
       [BLOCKS.TABLE_CELL]: (node, children) => (
         <td className="text-black p-2 lg:p-4">{children}</td>
       ),
-      [BLOCKS.TABLE_HEADER_CELL]: (node, children) => <thead className="font-semibold p-2 lg:p-4">{children}</thead>,
+      [BLOCKS.TABLE_HEADER_CELL]: (node, children) => (
+        <thead className="font-semibold p-2 lg:p-4">{children}</thead>
+      ),
       [INLINES.EMBEDDED_ENTRY]: (node, children) => {
         const entry = entryMap.get(node.data.target.sys.id);
         const { __typename } = entry;
@@ -199,6 +201,8 @@ export function getRichTextRenderOptions(links, options) {
                 alt={description}
                 height={height}
                 width={width}
+                placeholder="blur"
+                blurDataURL="/images/path-to-blur-image.jpg"
               />
             </div>
           );

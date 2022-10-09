@@ -59,6 +59,8 @@ export default function Post(props) {
               layout="fill"
               objectFit="cover"
               className="group-hover:scale-110 duration-700"
+              placeholder="blur"
+              blurDataURL="/images/path-to-blur-image.jpg"
             />
           </div>
         )}

@@ -2,9 +2,8 @@ import React from "react";
 import _ from "lodash";
 import PostItem from "@components/PostItem";
 
-export default function PostListInTag(props) {
+export default function PostListOutSizeBlogs(props) {
   const { posts } = props;
-
   return (
     <ol className="list-none">
       {!!posts &&
