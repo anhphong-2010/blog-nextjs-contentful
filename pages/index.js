@@ -1,9 +1,11 @@
 import RecentPostList from "@components/RecentPostList";
 import LayoutMain from "@layouts/LayoutMain";
 import SEO from "@components/SEO";
-import ContentfulApi from "@services/contentfulApi";
 import { Config } from "@utils/config";
 import { useTheme } from "next-themes";
+import ContentfulPageContent from "@services/contentful/pageContent";
+import ContentfulBlogPost from "@services/contentful/blog";
+import ContentfulTag from "@services/contentful/tag";
 import RichTextPageContent from "@components/RichTextPageContent";
 import { renderPropsComposer } from "@utils/props-composer";
 import _ from "lodash";
@@ -54,11 +56,11 @@ export default function Home(props) {
 }
 
 export async function getStaticProps({ preview = false }) {
-  const recentPosts = await ContentfulApi.getRecentPostList();
-  const pageContent = await ContentfulApi.getPageContentBySlug("home", {
+  const recentPosts = await ContentfulBlogPost.getRecentPostList();
+  const pageContent = await ContentfulPageContent.getPageContentBySlug("home", {
     preview: preview,
   });
-  const tags = await ContentfulApi.getTags();
+  const tags = await ContentfulTag.getTags();
   return {
     props: {
       preview,

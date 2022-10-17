@@ -46,7 +46,7 @@ export default function RecentPostItem(props) {
                   {gstyles.icons({
                     name: "arrow-right",
                     size: 22,
-                    fill: gstyles.colors.blue.light,
+                    fill: gstyles.colors.sky.light,
                   })}
                 </span>
               </div>

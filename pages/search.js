@@ -1,6 +1,6 @@
 import LayoutMain from "@layouts/LayoutMain";
 import SEO from "@components/SEO";
-import ContentfulApi from "@services/contentfulApi";
+import ContentfulBlogPost from "@services/contentful/blog";
 import { Config } from "@utils/config";
 import _ from "lodash";
 import React from "react";
@@ -70,7 +70,7 @@ export default function Search(props) {
 }
 
 export async function getStaticProps({ preview = false }) {
-  const posts = await ContentfulApi.getAllPostList({
+  const posts = await ContentfulBlogPost.getAllPostList({
     preview: false,
   });
 

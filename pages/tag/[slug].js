@@ -1,7 +1,7 @@
 import { Config } from "@utils/config";
 import _ from "lodash";
-import ContentfulApi from "@services/contentfulApi";
 import SEO from "@components/SEO";
+import ContentfulTag from "@services/contentful/tag";
 import PostListOutSizeBlogs from "@components/PostListOutSizeBlogs";
 import LayoutMain from "@layouts/LayoutMain";
 
@@ -32,10 +32,10 @@ export default function TagWrapper(props) {
 }
 
 export async function getStaticPaths() {
-  const tagSlugs = await ContentfulApi.getAllTagSlugs();
+  const tagSlugs = await ContentfulTag.getAllTagSlugs();
 
   const paths = tagSlugs.map((slug) => {
-    return { params: { slug } };
+    return { params: { slug: slug.toString() } };
   });
 
   // Using fallback: "blocking" here enables preview mode for unpublished blog slugs
@@ -47,7 +47,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, preview = false }) {
-  const tag = await ContentfulApi.getArticleByTag(params.slug, {
+  const tag = await ContentfulTag.getArticleByTag(params.slug, {
     preview: preview,
   });
 

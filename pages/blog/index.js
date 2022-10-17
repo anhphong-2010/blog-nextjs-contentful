@@ -1,4 +1,4 @@
-import ContentfulApi from "@services/contentfulApi";
+import ContentfulBlogPost from "@services/contentful/blog";
 import { Config } from "@utils/config";
 import PostList from "@components/PostList";
 import LayoutMain from "@layouts/LayoutMain";
@@ -21,7 +21,7 @@ export default function BlogIndex(props) {
 }
 
 export async function getStaticProps() {
-  const postSummaries = await ContentfulApi.getPaginatedPostSummaries(1);
+  const postSummaries = await ContentfulBlogPost.getPaginatedPostSummaries(1);
   const totalPages = Math.ceil(
     postSummaries.total / Config.pagination.pageSize
   );

@@ -1,8 +1,9 @@
+import ContentfulBlogPost from "@services/contentful/blog";
 import { Config } from "@utils/config";
 import _ from "lodash";
-import ContentfulApi from "@services/contentfulApi";
 import SEO from "@components/SEO";
 import Post from "@components/Post";
+import StatusBar from "@components/StatusBar";
 import LayoutMain from "@layouts/LayoutMain";
 
 export default function PostWrapper(props) {
@@ -16,6 +17,7 @@ export default function PostWrapper(props) {
         image={_.get(post, "thumbnail.url", "")}
         // canonical={post.externalUrl ? post.externalUrl : false}
       />
+      <StatusBar />
       <div className="container py-6 lg:py-12 sm:mx-auto">
         <Post post={post} />
       </div>
@@ -24,10 +26,9 @@ export default function PostWrapper(props) {
 }
 
 export async function getStaticPaths() {
-  const blogPostSlugs = await ContentfulApi.getAllPostSlugs();
-
+  const blogPostSlugs = await ContentfulBlogPost.getAllPostSlugs();
   const paths = blogPostSlugs.map((slug) => {
-    return { params: { slug } };
+    return { params: { slug: slug.toString() } };
   });
 
   // Using fallback: "blocking" here enables preview mode for unpublished blog slugs
@@ -39,7 +40,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, preview = false }) {
-  const post = await ContentfulApi.getPostBySlug(params.slug, {
+  const post = await ContentfulBlogPost.getPostBySlug(params.slug, {
     preview: preview,
   });
 
