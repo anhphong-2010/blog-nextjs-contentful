@@ -99,26 +99,44 @@ export function getRichTextRenderOptions(links, options) {
           );
         } else {
           return (
-            <h2 className="font-bold text-2xl md:text-3xl mb-6 font-body">
+            <h2 className="dark:text-white text-black font-bold text-2xl md:text-3xl mb-6 font-body">
               {children}
             </h2>
           );
         }
       },
       [BLOCKS.HEADING_3]: (node, children) => (
-        <h3 className={TypographyStyles.heading__h3}>{children}</h3>
+        <h3
+          className={`dark:text-white text-black ${TypographyStyles.heading__h3}`}
+        >
+          {children}
+        </h3>
       ),
       [BLOCKS.HEADING_4]: (node, children) => (
-        <h4 className={TypographyStyles.heading__h4}>{children}</h4>
+        <h4
+          className={`dark:text-white text-black ${TypographyStyles.heading__h4}`}
+        >
+          {children}
+        </h4>
       ),
       [BLOCKS.HEADING_5]: (node, children) => (
-        <h5 className={TypographyStyles.heading__h5}>{children}</h5>
+        <h5
+          className={`dark:text-white text-black ${TypographyStyles.heading__h5}`}
+        >
+          {children}
+        </h5>
       ),
       [BLOCKS.HEADING_6]: (node, children) => (
-        <h6 className={TypographyStyles.heading__h6}>{children}</h6>
+        <h6
+          className={`dark:text-white text-black ${TypographyStyles.heading__h6}`}
+        >
+          {children}
+        </h6>
       ),
       [BLOCKS.PARAGRAPH]: (node, children) => (
-        <p className="font-normal text-base my-4">{children}</p>
+        <p className="dark:text-white text-black font-normal text-base my-4">
+          {children}
+        </p>
       ),
       [BLOCKS.QUOTE]: (node, children) => (
         <blockquote className={TypographyStyles.blockquote}>
@@ -146,7 +164,7 @@ export function getRichTextRenderOptions(links, options) {
         </div>
       ),
       [BLOCKS.TABLE_ROW]: (node, children) => (
-        <tr className="odd:bg-gray-100 even:bg-gray-300 p-2 lg:p-4">
+        <tr className="odd:bg-gray-100 dark:odd:bg-gray-400 even:bg-gray-300 dark:even:bg-gray-500 p-2 lg:p-4">
           {children}
         </tr>
       ),

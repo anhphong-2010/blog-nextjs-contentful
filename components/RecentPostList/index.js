@@ -39,22 +39,3 @@ export default function RecentPostList(props) {
     </div>
   );
 }
-
-export async function getStaticProps({ preview = false }) {
-  //   const pageContent = await ContentfulApi.getPageContentBySlug(
-  //     Config.pageMeta.home.slug,
-  //     {
-  //       preview: preview,
-  //     }
-  //   );
-
-  const recentPosts = await ContentfulApi.getRecentPostList();
-
-  return {
-    props: {
-      preview,
-      //   pageContent: pageContent || null,
-      recentPosts,
-    },
-  };
-}

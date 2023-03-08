@@ -3,9 +3,7 @@ import Image from "next/image";
 import { postFormatter } from "@formatters/post";
 import PublishedDate from "@components/PublishedDate";
 
-export function Author(props) {
-  const { justify, size, data, published } = props;
-
+export function Author({ justify, size, data, published, textClassName }) {
   const justifySys = {
     center: "justify-center",
     start: "justify-start",
@@ -35,12 +33,12 @@ export function Author(props) {
           </div>
 
           <div>
-            <div className="text-sm font-semibold">
+            <div className={`${textClassName} text-sm font-semibold`}>
               {postFormatter.authorName(data)}
             </div>
             {!!published && (
               <PublishedDate
-                classStr="text-gray-500 text text-xs dark:text-gray-300 font-bold"
+                classStr="dark:text-white text-xs text-gray-500 font-bold"
                 date={_.get(data, "date")}
               />
             )}

@@ -52,6 +52,7 @@ export const Config = {
     pageSize: 4,
     recentPostsSize: 4,
     tagPageSize: 1,
+    relatePostSize: 3,
   },
   menuLinks: [
     {

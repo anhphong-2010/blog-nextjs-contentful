@@ -3,6 +3,7 @@ export default class GraphQLStringBlocks {
     return `
       author{
         name
+        description
         avatar{
           url
         }

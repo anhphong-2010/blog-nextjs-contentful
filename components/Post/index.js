@@ -1,5 +1,4 @@
 import RichTextPageContentStyles from "@styles/RichTextPageContent.module.css";
-import PublishedDate from "@components/PublishedDate";
 import Author from "@components/Author";
 import Tags from "@components/Tags";
 import RichTextPageContent from "@components/RichTextPageContent";
@@ -13,17 +12,16 @@ import _ from "lodash";
 
 export default function Post(props) {
   const { post } = props;
-  // const publishedAt = _.get(post, "sys.publishedAt", "");
   return (
     <article
-      className={`max-w-screen-lg relative mb-4 ${RichTextPageContentStyles.page}`}
+      className={`lg:p-4 max-w-screen-lg relative mb-4 ${RichTextPageContentStyles.page}`}
     >
       <div className="w-full mb-6">
         <div className="mx-4 sm:mx-0 flex flex-col justify-start items-start">
           <div className="py-4">
             <h1
               style={{ lineHeight: "3.2rem" }}
-              className="text-left font-extrabold text-2xl sm:text-3xl lg:text-4xl"
+              className="dark:text-white text-black text-left font-extrabold text-2xl sm:text-3xl lg:text-4xl"
             >
               {post.title}
             </h1>
@@ -31,15 +29,14 @@ export default function Post(props) {
           <div className="w-full flex justify-between items-center">
             <div>
               <div className="md:my-2">
-                <Author size={35} data={post} published />
+                <Author
+                  size={35}
+                  data={post}
+                  published
+                  textClassName="dark:text-white text-black"
+                />
               </div>
             </div>
-
-            {/* <PublishedDate
-              text={"Last updated on"}
-              classStr="text-gray-500 text-xs dark:text-gray-300 font-bold"
-              date={publishedAt}
-            /> */}
           </div>
         </div>
       </div>

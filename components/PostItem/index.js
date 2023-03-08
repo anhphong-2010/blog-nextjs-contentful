@@ -32,7 +32,12 @@ export default function Post(props) {
 
         <div className="w-full md:w-2/3">
           <div className="flex items-center space-x-2 md:space-x-4">
-            <Author size={35} justify="center" data={post} />
+            <Author
+              size={35}
+              justify="center"
+              data={post}
+              textClassName="dark:text-white text-black"
+            />
             <div>|</div>
             <PublishedDate date={post.date} />
           </div>

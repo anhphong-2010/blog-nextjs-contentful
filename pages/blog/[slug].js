@@ -4,12 +4,17 @@ import _ from "lodash";
 import SEO from "@components/SEO";
 import Post from "@components/Post";
 import StatusBar from "@components/StatusBar";
-import LayoutMain from "@layouts/LayoutMain";
+import LayoutSideBar from "@layouts/LayoutSideBar";
+import RelatePostList from "@components/RelatePostList";
+import StickyBox from "react-sticky-box";
+import { ResponsiveProps } from "@components/Responsive";
 
 export default function PostWrapper(props) {
-  const { post, preview } = props;
+  const { post, relatePosts, preview } = props;
+
   return (
-    <LayoutMain preview={preview}>
+    <>
+      <StatusBar />
       <SEO
         title={post.title}
         description={post.content}
@@ -17,11 +22,22 @@ export default function PostWrapper(props) {
         image={_.get(post, "thumbnail.url", "")}
         // canonical={post.externalUrl ? post.externalUrl : false}
       />
-      <StatusBar />
-      <div className="container py-6 lg:py-12 sm:mx-auto">
-        <Post post={post} />
-      </div>
-    </LayoutMain>
+      <LayoutSideBar preview={preview}>
+        <div className="container py-6 lg:py-12 sm:mx-auto">
+          <Post post={post} />
+        </div>
+        <ResponsiveProps
+          xs={{ style: { maxWidth: "100%" } }}
+          lg={{ style: { maxWidth: 300 } }}
+        >
+          {(resProp) => (
+            <StickyBox {...resProp} offsetTop={20} offsetBottom={20}>
+              <RelatePostList post={post} posts={relatePosts} />
+            </StickyBox>
+          )}
+        </ResponsiveProps>
+      </LayoutSideBar>
+    </>
   );
 }
 
@@ -53,10 +69,17 @@ export async function getStaticProps({ params, preview = false }) {
     };
   }
 
+  const author = _.get(post, "author.name", "");
+  const relatePosts = await ContentfulBlogPost.getRelatePostList(
+    params.slug,
+    author
+  );
+
   return {
     props: {
       preview,
       post,
+      relatePosts,
     },
   };
 }

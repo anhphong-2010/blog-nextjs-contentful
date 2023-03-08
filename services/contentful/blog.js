@@ -1,6 +1,4 @@
-import ContentfulApi, {
-  defaultOptions,
-} from "@services/contentful/api";
+import ContentfulApi, { defaultOptions } from "@services/contentful/api";
 import { Config } from "@utils/config";
 import GraphQLStringBlocks from "@services/contentful/graphql-string-block";
 import _ from "lodash";
@@ -12,6 +10,23 @@ export default class ContentfulBlogPost extends ContentfulApi {
       articleCollection(limit: $limit, order: date_DESC) {
         items {
           ${GraphQLStringBlocks.blogPost()}
+        }
+      }
+    }`;
+
+    const response = await this.callContentful(query, variables);
+    const recentPosts = _.get(response, "data.articleCollection.items", []);
+
+    return recentPosts;
+  }
+
+  static async getRelatePostList(slug, author) {
+    const variables = { limit: Config.pagination.relatePostSize, slug, author };
+    const query = `query GetRelatePostList($limit: Int!, $slug: String!, $author: String!) {
+      articleCollection(limit: $limit, where: {slug_not: $slug, author: {name_contains: $author}}, order: date_DESC) {
+        items {
+          ${GraphQLStringBlocks.blogPost()}
+          ${GraphQLStringBlocks.Tag()}
         }
       }
     }`;
