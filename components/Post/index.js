@@ -40,6 +40,14 @@ export default function Post(props) {
           </div>
         </div>
       </div>
+      <div
+          className={`text-gray-900 dark:text-white text-sm ${ContentListStyles.contentList__excerpt}`}
+        >
+          <ReactMarkdown
+            children={post.description}
+            components={ReactMarkdownRenderers(post.description)}
+          />
+        </div>
       <ResponsiveProps
         xs={{ style: { width: "100%", height: 200 } }}
         md={{ style: { height: 300 } }}
@@ -70,14 +78,7 @@ export default function Post(props) {
           </div>
         )}
         <hr className="my-6 dark:border-gray-300 border-black" />
-        <div
-          className={`text-gray-900 dark:text-white text-sm ${ContentListStyles.contentList__excerpt}`}
-        >
-          <ReactMarkdown
-            children={post.description}
-            components={ReactMarkdownRenderers(post.description)}
-          />
-        </div>
+       
         <RichTextPageContent
           richTextBodyField={post.content}
           // renderH2Links={true}
