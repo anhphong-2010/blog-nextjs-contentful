@@ -134,7 +134,7 @@ export function getRichTextRenderOptions(links, options) {
         </h6>
       ),
       [BLOCKS.PARAGRAPH]: (node, children) => (
-        <p className="dark:text-white text-black font-normal text-base my-4">
+        <p className="dark:text-white text-black font-normal text-base my-4 leading-normal">
           {children}
         </p>
       ),

@@ -7,7 +7,7 @@ export default function LayoutSideBar({ children }) {
     <div className="container mx-4 sm:mx-auto">
       <Header />
       <div className="flex flex-col lg:flex-row lg:space-x-3 w-full">
-        <div>
+        <div className="basis-3/4">
           <Layout name="side-bar">{_.get(children, "0", {})}</Layout>
         </div>
         <Layout name="content">{_.get(children, "1", {})}</Layout>

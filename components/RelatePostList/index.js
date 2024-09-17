@@ -11,9 +11,8 @@ export default function RelatePostList({ posts, post }) {
   const { systemTheme, theme } = useTheme("light");
   const currentTheme = theme === "system" ? systemTheme : theme;
   return (
-    <div>
-      <div className="mb-12 lg:my-12">
-        <div className="mb-4 p-4 rounded-lg bg-gray-800 dark:bg-white">
+      <div className="inline-block mb-12 lg:my-12">
+        <div className="base-1/2 mb-4 p-4 rounded-lg bg-gray-800 dark:bg-white">
           <div className={`py-4 flex-col flex items-start space-y-2`}>
             <Author
               size={60}
@@ -21,7 +20,7 @@ export default function RelatePostList({ posts, post }) {
               textClassName="text-white dark:text-black"
             />
             <div
-              className={`dark:text-gray-900 text-white text-sm break-all flex flex-col space-y-2`}
+              className={`dark:text-gray-900 text-white text-sm leading-relaxed flex flex-col space-y-2`}
             >
               <ReactMarkdown
                 children={_.get(post, "author.description")}
@@ -50,7 +49,7 @@ export default function RelatePostList({ posts, post }) {
           )}
         </div>
         {!!_.get(posts, "length") && (
-          <div className="p-4 py-6 rounded-lg bg-gray-800 dark:bg-white">
+          <div className="base-1/2 p-4 py-6 rounded-lg bg-gray-800 dark:bg-white">
             <h2 className="text-2xl font-semibold text-white dark:text-gray-900 mb-6">
               Others post from this author
             </h2>
@@ -68,6 +67,5 @@ export default function RelatePostList({ posts, post }) {
           </div>
         )}
       </div>
-    </div>
   );
 }

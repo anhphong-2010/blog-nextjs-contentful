@@ -17,7 +17,7 @@ export default function PostWrapper(props) {
       <StatusBar />
       <SEO
         title={post.title}
-        description={post.content}
+        description={post.description}
         url={`${Config.pageMeta.blogIndex.url}/${post.slug}`}
         image={_.get(post, "thumbnail.url", "")}
         // canonical={post.externalUrl ? post.externalUrl : false}

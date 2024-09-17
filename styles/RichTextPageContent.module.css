@@ -34,8 +34,8 @@
 .page__ul {
   display: block;
   list-style-type: disc;
-  margin-block-start: 3rem;
-  margin-block-end: 3rem;
+  margin-block-start: 1rem;
+  margin-block-end: 1rem;
   margin-inline-start: 0;
   margin-inline-end: 0;
   padding-inline-start: 4rem;
@@ -44,16 +44,16 @@
 .page__ol {
   display: block;
   list-style-type: decimal;
-  margin-block-start: 3rem;
-  margin-block-end: 3rem;
+  margin-block-start: 1rem;
+  margin-block-end: 1rem;
   margin-inline-start: 0;
   margin-inline-end: 0;
-  padding-inline-start: 4rem;
+  padding-inline-start: 2rem;
 }
 
 .page__li {
   font-size: 1.2rem;
-  line-height: 1.6rem;
+  line-height: 1rem;
   margin-bottom: 1rem;
   font-weight: var(--font-weight-light);
   font-family: var(--font-family-main);

@@ -41,13 +41,13 @@ export default function Post(props) {
         </div>
       </div>
       <div
-          className={`text-gray-900 dark:text-white text-sm ${ContentListStyles.contentList__excerpt}`}
-        >
-          <ReactMarkdown
-            children={post.description}
-            components={ReactMarkdownRenderers(post.description)}
-          />
-        </div>
+        className={`text-gray-900 dark:text-white text-sm ${ContentListStyles.contentList__excerpt}`}
+      >
+        <ReactMarkdown
+          children={post.description}
+          components={ReactMarkdownRenderers(post.description)}
+        />
+      </div>
       <ResponsiveProps
         xs={{ style: { width: "100%", height: 200 } }}
         md={{ style: { height: 300 } }}
@@ -77,15 +77,17 @@ export default function Post(props) {
           // renderH2Links={true}
         />
         <hr className="my-6 dark:border-gray-300 border-black" />
-        
-        <div className="flex items-center space-x-2 my-6">
-          <h2 className="dark:text-white text-black text-left font-extrabold text-md sm:text-lg lg:text-xl">Tags: </h2>
+
         {!!_.get(post, "tags.items.length") && (
-          <div className="flex justify-center items-center">
-            <Tags tags={_.get(post, "tags.items")} />
+          <div className="flex items-center space-x-2 my-6">
+            <h2 className="dark:text-white text-black text-left font-extrabold text-md sm:text-lg lg:text-xl">
+              Tags:{" "}
+            </h2>
+            <div className="flex justify-center items-center">
+              <Tags tags={_.get(post, "tags.items")} />
+            </div>
           </div>
         )}
-        </div>
       </div>
     </article>
   );
