@@ -4,13 +4,17 @@ import _ from "lodash";
 import Author from "@components/Author";
 import ReactMarkdown from "react-markdown";
 import ReactMarkdownRenderers from "@utils/react-mark-down-renderers";
+import gstyles from "@gstyles/index";
+import { useTheme } from "next-themes";
 
 export default function RelatePostList({ posts, post }) {
+  const { systemTheme, theme } = useTheme("light");
+  const currentTheme = theme === "system" ? systemTheme : theme;
   return (
     <div>
       <div className="mb-12 lg:my-12">
         <div className="mb-4 p-4 rounded-lg bg-gray-800 dark:bg-white">
-          <div className={`py-6 flex-col flex items-start space-y-2`}>
+          <div className={`py-4 flex-col flex items-start space-y-2`}>
             <Author
               size={60}
               data={post}
@@ -27,6 +31,21 @@ export default function RelatePostList({ posts, post }) {
               />
             </div>
           </div>
+          <div className="py-3 flex items-center space-x-4">
+            {_.map(_.get(post, "author.socials.items"), (social, index) => (
+              <div key={index}>
+                <a href={_.get(social, "url", "/")}>
+                  <div className="cursor-pointer text-white dark:text-gray-900">
+                    {gstyles.icons({
+                      name: _.get(social, "icon", ""),
+                      size: 24,
+                      fill: currentTheme === "dark" ? "000000" : "#ffffff",
+                    })}
+                  </div>
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="p-4 py-6 rounded-lg bg-gray-800 dark:bg-white">
@@ -35,9 +54,9 @@ export default function RelatePostList({ posts, post }) {
           </h2>
           <div className="flex space-y-4 flex-col">
             {_.map(posts, (post_item, index) => (
-              <div key={index}>
+              <div className="group" key={index}>
                 <a href={`/blog/${_.get(post_item, "slug", "")}`}>
-                  <div className="cursor-pointer text-white dark:text-gray-900">
+                  <div className="cursor-pointer text-sm text-white dark:text-gray-900 group-hover:text-sky-500 duration-700">
                     {_.get(post_item, "title", "")}
                   </div>
                 </a>

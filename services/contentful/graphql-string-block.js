@@ -1,11 +1,18 @@
 export default class GraphQLStringBlocks {
   static author() {
     return `
-      author{
+      author {
         name
         description
-        avatar{
+        avatar {
           url
+        }
+        socials: socialsCollection {
+          items{
+            name
+            icon
+            url
+          }
         }
       }
     `;

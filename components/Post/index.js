@@ -17,7 +17,7 @@ export default function Post(props) {
       className={`lg:p-4 max-w-screen-lg relative mb-4 ${RichTextPageContentStyles.page}`}
     >
       <div className="w-full mb-6">
-        <div className="mx-4 sm:mx-0 flex flex-col justify-start items-start">
+        <div className="flex flex-col justify-start items-start">
           <div className="py-4">
             <h1
               style={{ lineHeight: "3.2rem" }}
@@ -71,18 +71,21 @@ export default function Post(props) {
         )}
       </ResponsiveProps>
 
-      <div className="mx-4 sm:mx-0">
-        {!!_.get(post, "tags.items.length") && (
-          <div className="flex justify-center items-center my-6">
-            <Tags tags={_.get(post, "tags.items")} />
-          </div>
-        )}
-        <hr className="my-6 dark:border-gray-300 border-black" />
-       
+      <div>
         <RichTextPageContent
           richTextBodyField={post.content}
           // renderH2Links={true}
         />
+        <hr className="my-6 dark:border-gray-300 border-black" />
+        
+        <div className="flex items-center space-x-2 my-6">
+          <h2 className="dark:text-white text-black text-left font-extrabold text-md sm:text-lg lg:text-xl">Tags: </h2>
+        {!!_.get(post, "tags.items.length") && (
+          <div className="flex justify-center items-center">
+            <Tags tags={_.get(post, "tags.items")} />
+          </div>
+        )}
+        </div>
       </div>
     </article>
   );
