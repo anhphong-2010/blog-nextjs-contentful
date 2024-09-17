@@ -49,23 +49,24 @@ export default function RelatePostList({ posts, post }) {
             </div>
           )}
         </div>
-
-        <div className="p-4 py-6 rounded-lg bg-gray-800 dark:bg-white">
-          <h2 className="text-2xl font-semibold text-white dark:text-gray-900 mb-6">
-            Others post from this author
-          </h2>
-          <div className="flex space-y-4 flex-col">
-            {_.map(posts, (post_item, index) => (
-              <div className="group" key={index}>
-                <a href={`/blog/${_.get(post_item, "slug", "")}`}>
-                  <div className="cursor-pointer text-sm text-white dark:text-gray-900 group-hover:text-sky-500 duration-700">
-                    {_.get(post_item, "title", "")}
-                  </div>
-                </a>
-              </div>
-            ))}
+        {!!_.get(posts, "length") && (
+          <div className="p-4 py-6 rounded-lg bg-gray-800 dark:bg-white">
+            <h2 className="text-2xl font-semibold text-white dark:text-gray-900 mb-6">
+              Others post from this author
+            </h2>
+            <div className="flex space-y-4 flex-col">
+              {_.map(posts, (post_item, index) => (
+                <div className="group" key={index}>
+                  <a href={`/blog/${_.get(post_item, "slug", "")}`}>
+                    <div className="cursor-pointer text-sm text-white dark:text-gray-900 group-hover:text-sky-500 duration-700">
+                      {_.get(post_item, "title", "")}
+                    </div>
+                  </a>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
