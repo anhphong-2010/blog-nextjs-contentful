@@ -31,21 +31,23 @@ export default function RelatePostList({ posts, post }) {
               />
             </div>
           </div>
-          <div className="py-3 flex items-center space-x-4">
-            {_.map(_.get(post, "author.socials.items"), (social, index) => (
-              <div key={index}>
-                <a href={_.get(social, "url", "/")}>
-                  <div className="cursor-pointer text-white dark:text-gray-900">
-                    {gstyles.icons({
-                      name: _.get(social, "icon", ""),
-                      size: 24,
-                      fill: currentTheme === "dark" ? "000000" : "#ffffff",
-                    })}
-                  </div>
-                </a>
-              </div>
-            ))}
-          </div>
+          {!!_.get(post, "author.socials.items.length") && (
+            <div className="py-3 flex items-center space-x-4">
+              {_.map(_.get(post, "author.socials.items"), (social, index) => (
+                <div key={index}>
+                  <a href={_.get(social, "url", "/")}>
+                    <div className="cursor-pointer text-white dark:text-gray-900">
+                      {gstyles.icons({
+                        name: _.get(social, "icon", ""),
+                        size: 24,
+                        fill: currentTheme === "dark" ? "000000" : "#ffffff",
+                      })}
+                    </div>
+                  </a>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="p-4 py-6 rounded-lg bg-gray-800 dark:bg-white">
